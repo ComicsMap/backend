@@ -1,0 +1,27 @@
+name: 'Common Node.js Setup'
+description: 'Sets up Node.js environment and installs dependencies'
+
+inputs:
+  node-version:
+    required: false
+    default: '24'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: ⚙️ Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: 📦 Cache node_modules
+      id: cache-node-modules
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: 📦 Install dependencies
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      run: npm ci
+      shell: bash
