@@ -67,9 +67,71 @@ export class SeedCommand extends CommandRunner {
       alexSinclair: em.create(Person, { displayName: 'Alex Sinclair' }),
       lauraMartin: em.create(Person, { displayName: 'Laura Martin' }),
       erikLarsen: em.create(Person, { displayName: 'Erik Larsen' }),
+      denizCamp: em.create(Person, { displayName: 'Deniz Camp' }),
+      alexPaknadel: em.create(Person, { displayName: 'Alex Paknadel' }),
+      patrickBoutin: em.create(Person, { displayName: 'Patrick Boutin' }),
+      philNoto: em.create(Person, { displayName: 'Phil Noto' }),
+      leeFerguson: em.create(Person, { displayName: 'Lee Ferguson' }),
+      javierPulido: em.create(Person, { displayName: 'Javier Pulido' }),
+      terryDodson: em.create(Person, { displayName: 'Terry Dodson' }),
+      rachelDodson: em.create(Person, { displayName: 'Rachel Dodson' }),
+      jonasScharf: em.create(Person, { displayName: 'Jonas Scharf' }),
+      cafu: em.create(Person, { displayName: 'Cafu' }),
+      markBrooks: em.create(Person, { displayName: 'Mark Brooks' }),
+      brianMichaelBendis: em.create(Person, {
+        displayName: 'Brian Michael Bendis',
+      }),
+      markBagley: em.create(Person, { displayName: 'Mark Bagley' }),
+      richardIsanove: em.create(Person, { displayName: 'Richard Isanove' }),
+      chipZdarsky: em.create(Person, { displayName: 'Chip Zdarsky' }),
+      frankAlpizar: em.create(Person, { displayName: 'Frank Alpizar' }),
+      delioDiaz: em.create(Person, { displayName: 'Delio Diaz' }),
+      jedMacKay: em.create(Person, { displayName: 'Jed MacKay' }),
+      federicoVicentini: em.create(Person, {
+        displayName: 'Federico Vicentini',
+      }),
+      ryanNorth: em.create(Person, { displayName: 'Ryan North' }),
+      francescoMobili: em.create(Person, { displayName: 'Francesco Mobili' }),
+      arthurHesli: em.create(Person, { displayName: 'Arthur Hesli' }),
+      jonathanHickman: em.create(Person, { displayName: 'Jonathan Hickman' }),
+      dustinWeaver: em.create(Person, { displayName: 'Dustin Weaver' }),
+      geraldParel: em.create(Person, { displayName: 'Gerald Parel' }),
+      codyZiglar: em.create(Person, { displayName: 'Cody Ziglar' }),
+      johnRomitaJr: em.create(Person, { displayName: 'John Romita Jr.' }),
+      patrickGleason: em.create(Person, { displayName: 'Patrick Gleason' }),
+      deanWhite: em.create(Person, { displayName: 'Dean White' }),
+      stuartImmonen: em.create(Person, { displayName: 'Stuart Immonen' }),
     };
 
     const issues = {
+      armageddonCGD2026: em.create(Issue, {
+        title: 'Avengers Armageddon/X-Men CGD 2026 #1',
+        synopsis:
+          "The heroes of the Marvel Universe assemble to take on the Red Hulk in a critical story by Chip Zdarsky that sets the stage for this summer's Marvel event…ARMAGEDDON! Armageddon is here, and no one is safe from the coming end. PLUS: Your first look at this summer's big X-MEN event…and DOOM!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2026-05-02'),
+      }),
+      amazingSpiderManFCBD2025: em.create(Issue, {
+        title: 'The Amazing Spider-Man/Ultimate Universe FCBD 2025 #1',
+        synopsis:
+          "Joe Kelly and John Romita Jr. remind us who Peter Parker and SPIDER-MAN are! Plus, an exclusive prologue to this summer's blockbuster ULTIMATE event from Deniz Camp, Cody Ziglar & Jonas Scharf!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2025-05-03'),
+      }),
+      shield1: em.create(Issue, {
+        title: 'S.H.I.E.L.D. #1',
+        synopsis:
+          "The most acclaimed book of 2010 is back in 2011! The second volume of S.H.I.E.L.D. has arrived and Jonathan Hickman (FANTASTIC FOUR) and Dustin Weaver (X-MEN) are making the second volume of S.H.I.E.L.D. even better than the first! In this issue, the secret history of Michelangelo. He has been pulling the strings for years and is now becoming the prime mover. Can he keep Da Vinci and Newton from killing each other and destroying the Brotherhood of the Shield? Don't miss this new start of the book that everyone is talking about!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2011-06-01'),
+      }),
+      shield2: em.create(Issue, {
+        title: 'S.H.I.E.L.D. #2',
+        synopsis:
+          'The battle between Leonardo Da Vinci and Issac Newton for the Immortal City comes to a climactic conclusion! Leonid makes his choice between his two fathers, Michelangelo and Tesla kick their plan into high gear and Howard Stark lays the foundation for the organization you know as S.H.I.E.L.D.',
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2011-08-03'),
+      }),
       allNewVenom1: em.create(Issue, {
         title: 'All-New Venom #1',
         synopsis:
@@ -217,9 +279,83 @@ export class SeedCommand extends CommandRunner {
         publisher: Publisher.Marvel,
         publishedAt: new Date('2026-04-08'),
       }),
+      ultimateUniverseTwoYearsIn: em.create(Issue, {
+        title: 'Ultimate Universe: Two Years In',
+        synopsis:
+          "ALL PATHS LEAD TO ENDGAME! In preparation for the Maker's return in ULTIMATE ENDGAME, the Ultimate Guardians have been traveling all across time and space, recruiting members new and old… Travel across all the corners of the Ultimate Universe! Don't miss the dawn of many new characters, including ULTIMATE DAREDEVIL!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2025-12-03'),
+      }),
+      ultimateEndgame1: em.create(Issue, {
+        title: 'Ultimate Endgame #1',
+        synopsis:
+          "ENDGAME HAS ARRIVED! The moment that has been building since the beginning of the new Ultimate Universe! Spinning out of Deniz Camp and Juan Frigeri's ULTIMATES comes the culmination of ULTIMATE INVASION… Two (thousand) years have passed in the Ultimate Universe, but inside the City, the Maker has had thousands of years to prepare for his return! With the barrier around the City finally gone, heroes all across the Ultimate Universe must mobilize to defeat the Maker before it's game over. For everyone. Meanwhile, the rest of the world wages World War III…",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2025-12-31'),
+      }),
+      ultimateEndgame2: em.create(Issue, {
+        title: 'Ultimate Endgame #2',
+        synopsis:
+          "THE END HAS ONLY JUST BEGUN! The heroes of the Ultimate Universe - including Spider-Man, America Chavez, Killmonger and Doom - desperately search for a way to stop the Maker. Plus, Iron Lad makes a stunning and heartbreaking discovery that could change the fate of the entire Ultimate Universe forever. Don't miss this pivotal chapter that will leave you reeling!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2026-02-04'),
+      }),
+      ultimateEndgame3: em.create(Issue, {
+        title: 'Ultimate Endgame #3',
+        synopsis:
+          "THE END OF THE ULTIMATE UNIVERSE DRAWS NEAR! Inside the Maker's City, a desperate group of heroes battles the terrifying Children of Tomorrow and discover some surprising allies! While outside the City, the Ultimates and other heroes of the Ultimate Universe must deal with the unspeakable power that has just been unleashed! With shocking twists, painful deaths and massive reveals, this epic is heating up fast. Don't miss the ultimate super-hero event of the century!",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2026-03-25'),
+      }),
+      ultimateEndgame4: em.create(Issue, {
+        title: 'Ultimate Endgame #4',
+        synopsis:
+          'SPIDER-MAN MEETS HIS MAKER! Time is ticking on the Ultimate Universe!!! In this penultimate issue of the most climactic super-hero event EVER(!)…heroes will fall, villains will rise and your favorite characters will be forced to make difficult sacrifices!',
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2026-05-13'),
+      }),
+      ultimateSpiderMan55: em.create(Issue, {
+        title: 'Ultimate Spider-Man #55',
+        synopsis:
+          'HOLLYWOOD PART 2 Spider-Man may have made it to Hollywood, but Doc Ock is right behind him! Prepare for an all-out showdown on the set of the unauthorized Spider-Man movie!',
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2004-03-24'),
+      }),
+      ultimateSpiderMan67: em.create(Issue, {
+        title: 'Ultimate Spider-Man #67',
+        synopsis:
+          "SUPERSTARS PART 2 Wolverine and Spider-Man have always been in each other's faces. Today they're in each other's bodies! It's Freaky Friday...",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2004-09-20'),
+      }),
+      ultimateSpiderMan115: em.create(Issue, {
+        title: 'Ultimate Spider-Man #115',
+        synopsis:
+          "DEATH OF A GOBLIN PART 4 A team of federal agents are on Osborn's tail! And leading that team is none other than Spider-Man: Agent of S.H.I.E.L.D.! How did this happen and what does it all mean?",
+        publisher: Publisher.Marvel,
+        publishedAt: new Date('2007-09-24'),
+      }),
     };
 
     const covers = {
+      armageddonCGD2026: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/d0/69ce93e8d4488/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960621597300111'],
+      }),
+      amazingSpiderManFCBD2025: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/03/679271b069e15/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960621236100111'],
+      }),
+      shield1: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/60/5c59c10b90fa9/clean.jpg',
+        isVariant: false,
+      }),
+      shield2: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/60/5c59c988e6107/clean.jpg',
+        isVariant: false,
+      }),
       allNewVenom1: {
         default: em.create(Cover, {
           url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/b0/6750d4ca845f5/clean.jpg',
@@ -327,10 +463,185 @@ export class SeedCommand extends CommandRunner {
         isVariant: false,
         barcodes: ['75960621001502611'],
       }),
+      ultimateUniverseTwoYearsIn: {
+        default: em.create(Cover, {
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/70/691f324c6c18b/clean.jpg',
+          isVariant: false,
+          barcodes: ['75960621248400111'],
+        }),
+        daredevil: em.create(Cover, {
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/8/70/691f33a00a1cd/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621248400121'],
+        }),
+      },
+      ultimateEndgame1: {
+        default: em.create(Cover, {
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/e0/693ae1395de55/clean.jpg',
+          isVariant: false,
+        }),
+        cafu: em.create(Cover, {
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/c0/693ae20e5486e/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800141'],
+        }),
+      },
+      ultimateEndgame2: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/10/69724eac69354/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960621336800211'],
+      }),
+      ultimateEndgame3: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/a0/69aedff0d922c/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960621336800311'],
+      }),
+      ultimateEndgame4: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/2/c0/019dc145bf44/clean.jpg',
+        isVariant: false,
+      }),
+      ultimateSpiderMan55: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/50/58e3e6a0ce6d1/clean.jpg',
+        isVariant: false,
+      }),
+      ultimateSpiderMan67: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/60/58e69cb4468cf/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960605031406711'],
+      }),
+      ultimateSpiderMan115: em.create(Cover, {
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/40/58e7c56bd2848/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960605031411511'],
+      }),
     };
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const issueContributors = {
+      armageddonCGD2026: [
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.chipZdarsky,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.jedMacKay,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.ryanNorth,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.frankAlpizar,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.delioDiaz,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.federicoVicentini,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.francescoMobili,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.ryanStegman,
+          role: ContributorRole.CoverArtist,
+          cover: covers.armageddonCGD2026,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.armageddonCGD2026,
+          person: people.arthurHesli,
+          role: ContributorRole.CoverArtist,
+          cover: covers.armageddonCGD2026,
+        }),
+      ],
+      shield1: [
+        em.create(IssueContributor, {
+          issue: issues.shield1,
+          person: people.jonathanHickman,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.shield1,
+          person: people.dustinWeaver,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.shield1,
+          person: people.geraldParel,
+          role: ContributorRole.CoverArtist,
+          cover: covers.shield1,
+        }),
+      ],
+      shield2: [
+        em.create(IssueContributor, {
+          issue: issues.shield2,
+          person: people.jonathanHickman,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.shield2,
+          person: people.dustinWeaver,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.shield2,
+          person: people.geraldParel,
+          role: ContributorRole.CoverArtist,
+          cover: covers.shield2,
+        }),
+      ],
+      amazingSpiderManFCBD2025: [
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.joeKelly,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.codyZiglar,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.johnRomitaJr,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.jonasScharf,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.patrickGleason,
+          role: ContributorRole.CoverArtist,
+          cover: covers.amazingSpiderManFCBD2025,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.amazingSpiderManFCBD2025,
+          person: people.deanWhite,
+          role: ContributorRole.CoverArtist,
+          cover: covers.amazingSpiderManFCBD2025,
+        }),
+      ],
       allNewVenom1: [
         em.create(IssueContributor, {
           issue: issues.allNewVenom1,
@@ -779,7 +1090,245 @@ export class SeedCommand extends CommandRunner {
           cover: covers.theAmazingSpiderMan26,
         }),
       ],
+      ultimateUniverseTwoYearsIn: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.alexPaknadel,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.patrickBoutin,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.philNoto,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.francescoManna,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.leeFerguson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.javierPulido,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.ryanStegman,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateUniverseTwoYearsIn.default,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateUniverseTwoYearsIn,
+          person: people.giuseppeCamuncoli,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateUniverseTwoYearsIn.daredevil,
+        }),
+      ],
+      ultimateEndgame1: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.terryDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.rachelDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.jonasScharf,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.markBrooks,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateEndgame1.default,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame1,
+          person: people.cafu,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateEndgame1.cafu,
+        }),
+      ],
+      ultimateEndgame2: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame2,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame2,
+          person: people.terryDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame2,
+          person: people.rachelDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame2,
+          person: people.jonasScharf,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame2,
+          person: people.markBrooks,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateEndgame2,
+        }),
+      ],
+      ultimateEndgame3: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame3,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame3,
+          person: people.terryDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame3,
+          person: people.rachelDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame3,
+          person: people.jonasScharf,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame3,
+          person: people.markBrooks,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateEndgame3,
+        }),
+      ],
+      ultimateEndgame4: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame4,
+          person: people.denizCamp,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame4,
+          person: people.terryDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame4,
+          person: people.rachelDodson,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame4,
+          person: people.jonasScharf,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateEndgame4,
+          person: people.markBrooks,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateEndgame4,
+        }),
+      ],
+      ultimateSpiderMan55: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan55,
+          person: people.brianMichaelBendis,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan55,
+          person: people.markBagley,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan55,
+          person: people.markBagley,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateSpiderMan55,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan55,
+          person: people.richardIsanove,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateSpiderMan55,
+        }),
+      ],
+      ultimateSpiderMan67: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan67,
+          person: people.brianMichaelBendis,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan67,
+          person: people.markBagley,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan67,
+          person: people.markBagley,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateSpiderMan67,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan67,
+          person: people.richardIsanove,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateSpiderMan67,
+        }),
+      ],
+      ultimateSpiderMan115: [
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan115,
+          person: people.brianMichaelBendis,
+          role: ContributorRole.Writer,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan115,
+          person: people.stuartImmonen,
+          role: ContributorRole.Artist,
+        }),
+        em.create(IssueContributor, {
+          issue: issues.ultimateSpiderMan115,
+          person: people.stuartImmonen,
+          role: ContributorRole.CoverArtist,
+          cover: covers.ultimateSpiderMan115,
+        }),
+      ],
     };
+
+    em.create(ReadingEdge, {
+      from: issues.shield1,
+      to: issues.shield2,
+    });
 
     em.create(ReadingEdge, {
       from: issues.allNewVenom1,
@@ -831,6 +1380,23 @@ export class SeedCommand extends CommandRunner {
     });
     em.create(ReadingEdge, { from: issues.venom257, to: issues.venom258 });
     em.create(ReadingEdge, { from: issues.webOfVenom1, to: issues.venom258 });
+
+    em.create(ReadingEdge, {
+      from: issues.ultimateUniverseTwoYearsIn,
+      to: issues.ultimateEndgame1,
+    });
+    em.create(ReadingEdge, {
+      from: issues.ultimateEndgame1,
+      to: issues.ultimateEndgame2,
+    });
+    em.create(ReadingEdge, {
+      from: issues.ultimateEndgame2,
+      to: issues.ultimateEndgame3,
+    });
+    em.create(ReadingEdge, {
+      from: issues.ultimateEndgame3,
+      to: issues.ultimateEndgame4,
+    });
 
     await em.flush();
   }

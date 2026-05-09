@@ -1,3 +1,4 @@
+import { IssueLayout } from '@entities/issue-layout.entity';
 import { IssueContributor } from '@entities/issues/issue-contributor.entity';
 import {
   Collection,
@@ -6,9 +7,11 @@ import {
   Filter,
   Index,
   OneToMany,
+  OneToOne,
   type Opt,
   PrimaryKey,
   Property,
+  type Ref,
 } from '@mikro-orm/core';
 
 export enum Publisher {
@@ -64,6 +67,12 @@ export class Issue {
 
   @OneToMany(() => IssueContributor, (contributor) => contributor.issue)
   readonly contributors = new Collection<IssueContributor>(this);
+
+  @OneToOne(() => IssueLayout, (layout) => layout.issue, {
+    nullable: true,
+    ref: true,
+  })
+  layout?: Ref<IssueLayout>;
 
   @Property({
     name: 'published_at',

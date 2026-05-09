@@ -42,6 +42,18 @@ export const issueSchema = z.object({
       populatedContributorSchema,
     ]),
   ),
+  layout: z
+    .union([
+      z.uuid(),
+      z.object({
+        x: z.number(),
+        y: z.number(),
+        communityId: z.number().int(),
+        componentId: z.number().int(),
+      }),
+    ])
+    .nullish()
+    .describe('Layout entry in the global graph (null if not laid out yet)'),
 });
 
 export const serializedIssueSchema = issueSchema.transform((data) => {
@@ -78,12 +90,18 @@ export const serializedIssueSchema = issueSchema.transform((data) => {
     }
   }
 
+  const position =
+    data.layout && typeof data.layout !== 'string'
+      ? { x: data.layout.x, y: data.layout.y }
+      : null;
+
   return {
     uuid: data.uuid,
     title: data.title,
     synopsis: data.synopsis,
     publisher: data.publisher,
     publishedAt: data.publishedAt,
+    position,
     contributors: data.contributors.map((contributor) =>
       typeof contributor === 'string'
         ? contributor

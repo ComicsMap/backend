@@ -78,6 +78,7 @@ export class IssuesService {
           'contributors.cover',
           'contributors.cover.contributors:ref',
           'contributors.person',
+          'layout',
         ],
       },
     );

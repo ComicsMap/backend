@@ -1,3 +1,4 @@
+import { IssueLayout } from '@entities/issue-layout.entity';
 import { Cover } from '@entities/issues/cover.entity';
 import {
   ContributorRole,
@@ -12,6 +13,7 @@ export {
   Cover,
   Issue,
   IssueContributor,
+  IssueLayout,
   Person,
   Publisher,
   ReadingEdge,

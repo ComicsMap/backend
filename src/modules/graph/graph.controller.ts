@@ -7,11 +7,22 @@ import { Controller, Get, HttpCode, HttpStatus, Query } from '@nestjs/common';
 export class GraphController {
   constructor(private readonly service: GraphService) {}
 
-  @Get('subgraph')
+  @Get('window')
   @HttpCode(HttpStatus.OK)
-  public getSubgraph(
-    @Query() query: DTOs.GetSubgraphQuery,
-  ): Promise<Types.GetSubgraphResponse> {
-    return this.service.getSubgraph(query.issueUuid, query.depth);
+  public getWindow(
+    @Query() query: DTOs.GetWindowQuery,
+  ): Promise<Types.GetWindowResponse> {
+    return this.service.getWindow({
+      xMin: query.xMin,
+      xMax: query.xMax,
+      yMin: query.yMin,
+      yMax: query.yMax,
+      visibleXMin: query.visibleXMin,
+      visibleXMax: query.visibleXMax,
+      visibleYMin: query.visibleYMin,
+      visibleYMax: query.visibleYMax,
+      componentId: query.componentId,
+      maxNodes: query.maxNodes,
+    });
   }
 }
