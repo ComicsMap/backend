@@ -41,21 +41,21 @@ export const seedReadingEdges = (em: Em, issues: Issues) => {
 
   readingChain(
     em,
+    issues.secretAvengers2,
+    issues.secretAvengers3,
+    issues.secretAvengers4,
+    issues.secretAvengers5,
     issues.secretAvengers6,
     issues.secretAvengers7,
     issues.secretAvengers8,
     issues.secretAvengers9,
-  );
-  readingChain(
-    em,
     issues.secretAvengers10,
     issues.secretAvengers11,
     issues.secretAvengers12,
     issues['secretAvengers12.1'],
-  );
-  readingChain(em, issues.secretAvengers14, issues.secretAvengers15);
-  readingChain(
-    em,
+    issues.secretAvengers13,
+    issues.secretAvengers14,
+    issues.secretAvengers15,
     issues.secretAvengers16,
     issues.secretAvengers17,
     issues.secretAvengers18,

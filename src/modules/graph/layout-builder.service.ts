@@ -92,7 +92,7 @@ export class LayoutBuilderService {
     const communityCount = new Set(Object.values(communityMap)).size;
     const durationMs = Date.now() - startedAt;
 
-    this.logger.log(
+    this.logger.verbose(
       `Layout rebuilt: ${issueRows.length} nodes, ${edgeRows.length} edges, ${componentCount} components, ${communityCount} communities in ${durationMs}ms`,
     );
 

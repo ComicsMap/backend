@@ -1,4 +1,5 @@
 import { LayoutBuilderService } from '@modules/graph/layout-builder.service';
+import { Logger } from '@nestjs/common';
 import { Command, CommandRunner } from 'nest-commander';
 
 @Command({
@@ -6,12 +7,13 @@ import { Command, CommandRunner } from 'nest-commander';
   description: 'Rebuild the global graph layout (clusters + ELK positions)',
 })
 export class LayoutRebuildCommand extends CommandRunner {
+  private readonly logger = new Logger(LayoutRebuildCommand.name);
+
   constructor(private readonly layoutBuilder: LayoutBuilderService) {
     super();
   }
 
   async run(): Promise<void> {
-    const result = await this.layoutBuilder.rebuild();
-    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
+    await this.layoutBuilder.rebuild();
   }
 }
