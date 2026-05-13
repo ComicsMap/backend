@@ -32,7 +32,11 @@ export class IssuesService {
         {
           contributors: {
             person: {
-              displayName: { $ilike: `%${escapeLike(trimmed)}%` },
+              $or: [
+                { firstName: { $ilike: `%${escapeLike(trimmed)}%` } },
+                { lastName: { $ilike: `%${escapeLike(trimmed)}%` } },
+                { pseudonym: { $ilike: `%${escapeLike(trimmed)}%` } },
+              ],
             },
           },
         },

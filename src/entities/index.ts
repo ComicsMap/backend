@@ -7,6 +7,7 @@ import {
 import { Issue, Publisher } from '@entities/issues/issue.entity';
 import { Person } from '@entities/person.entity';
 import { ReadingEdge } from '@entities/reading-edge.entity';
+import { Series } from '@entities/series.entity';
 
 export {
   ContributorRole,
@@ -17,4 +18,5 @@ export {
   Person,
   Publisher,
   ReadingEdge,
+  Series,
 };

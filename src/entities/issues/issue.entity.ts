@@ -1,11 +1,13 @@
 import { IssueLayout } from '@entities/issue-layout.entity';
 import { IssueContributor } from '@entities/issues/issue-contributor.entity';
+import { Series } from '@entities/series.entity';
 import {
   Collection,
   Entity,
   Enum,
   Filter,
   Index,
+  ManyToOne,
   OneToMany,
   OneToOne,
   type Opt,
@@ -64,6 +66,21 @@ export class Issue {
     nullable: false,
   })
   publisher!: Publisher;
+
+  @ManyToOne(() => Series, {
+    name: 'series_uuid',
+    nullable: false,
+    deleteRule: 'set null',
+    ref: true,
+  })
+  series!: Ref<Series>;
+
+  @Property({
+    name: 'issue_number',
+    columnType: 'numeric(5,1)',
+    nullable: true,
+  })
+  issueNumber?: Opt<string>;
 
   @OneToMany(() => IssueContributor, (contributor) => contributor.issue)
   readonly contributors = new Collection<IssueContributor>(this);

@@ -7,6 +7,12 @@ import { Controller, Get, HttpCode, HttpStatus, Query } from '@nestjs/common';
 export class GraphController {
   constructor(private readonly service: GraphService) {}
 
+  @Get('meta')
+  @HttpCode(HttpStatus.OK)
+  public getMeta(): Promise<Types.GetMetaResponse> {
+    return this.service.getMeta();
+  }
+
   @Get('window')
   @HttpCode(HttpStatus.OK)
   public getWindow(

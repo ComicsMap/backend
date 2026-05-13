@@ -32,8 +32,14 @@ export class LayoutBuilderService {
     const knex = this.em.getKnex();
 
     const { rows: issueRows } = await knex.raw<{
-      rows: { uuid: string }[];
-    }>(`SELECT uuid FROM issues WHERE deleted_at IS NULL`);
+      rows: {
+        uuid: string;
+        series_uuid: Nullable<string>;
+        issue_number: Nullable<string>;
+      }[];
+    }>(
+      `SELECT uuid, series_uuid, issue_number FROM issues WHERE deleted_at IS NULL`,
+    );
     const { rows: edgeRows } = await knex.raw<{
       rows: { from_uuid: string; to_uuid: string }[];
     }>(
@@ -62,11 +68,14 @@ export class LayoutBuilderService {
         graph.hasNode(row.to_uuid) &&
         !graph.hasEdge(row.from_uuid, row.to_uuid)
       )
-        graph.addEdge(row.from_uuid, row.to_uuid);
+        graph.addEdge(row.from_uuid, row.to_uuid, { weight: 1 });
     }
 
     const componentMap = this.computeComponents(graph);
-    const communityMap = louvain(graph);
+
+    this.addSeriesClusteringEdges(graph, issueRows);
+
+    const communityMap = louvain(graph, { getEdgeWeight: 'weight' });
     const positions = await this.runElkLayout(graph);
 
     const upsertRows: LayoutRow[] = issueRows.map((row) => ({
@@ -94,6 +103,43 @@ export class LayoutBuilderService {
       communityCount,
       durationMs,
     };
+  }
+
+  private addSeriesClusteringEdges(
+    graph: Graph,
+    issueRows: {
+      uuid: string;
+      series_uuid: Nullable<string>;
+      issue_number: Nullable<string>;
+    }[],
+  ): void {
+    const SERIES_EDGE_WEIGHT = 0.25;
+
+    const issuesBySeries = new Map<
+      string,
+      { uuid: string; issueNumber: number }[]
+    >();
+    for (const row of issueRows) {
+      if (!row.series_uuid) continue;
+      const issueNumber = row.issue_number
+        ? Number.parseFloat(row.issue_number)
+        : Number.POSITIVE_INFINITY;
+      const entry = { uuid: row.uuid, issueNumber };
+      const list = issuesBySeries.get(row.series_uuid);
+      if (list) list.push(entry);
+      else issuesBySeries.set(row.series_uuid, [entry]);
+    }
+
+    for (const issues of issuesBySeries.values()) {
+      if (issues.length < 2) continue;
+      issues.sort((a, b) => a.issueNumber - b.issueNumber);
+      for (let i = 0; i < issues.length - 1; i++) {
+        const a = issues[i].uuid;
+        const b = issues[i + 1].uuid;
+        if (graph.hasEdge(a, b)) continue;
+        graph.addEdge(a, b, { weight: SERIES_EDGE_WEIGHT });
+      }
+    }
   }
 
   private computeComponents(graph: Graph): Map<string, number> {

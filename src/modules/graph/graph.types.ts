@@ -12,11 +12,24 @@ export interface DetailNode {
   position: { x: number; y: number };
   communityId: number;
   componentId: number;
+  seriesUuid: Nullable<string>;
+  seriesDisplayTitle: Nullable<string>;
   data: {
     title: string;
     publishedAt: Date;
     coverUrl: Nullable<string>;
   };
+}
+
+export interface GraphBounds {
+  xMin: number;
+  xMax: number;
+  yMin: number;
+  yMax: number;
+}
+
+export interface GetMetaResponse {
+  bounds: GraphBounds;
 }
 
 export interface ClusterNode {

@@ -12,6 +12,4 @@ export const ELK_LAYOUT_OPTIONS = {
   'elk.separateConnectedComponents': 'true',
 };
 
-export const NODE_STEP = NODE_SIZE + NODE_SPACING;
-
-export const CLUSTER_LOD_AREA_THRESHOLD = (NODE_STEP * 10) ** 2;
+export const CLUSTER_LOD_AREA_RATIO = 0.75;

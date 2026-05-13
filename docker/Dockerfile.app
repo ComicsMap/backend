@@ -14,7 +14,7 @@ FROM node:24-alpine AS deps
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY --from=builder /app/package*.json ./
 RUN npm ci --omit=dev --ignore-scripts
 
 FROM node:24-alpine AS runner

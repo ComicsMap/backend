@@ -178,6 +178,7 @@ export const createIssueBodySchema = z.object({
   synopsis: z.string().nullish().describe('Synopsis of the issue'),
   publisher: z.enum(Entities.Publisher).describe('Publisher of the issue'),
   publishedAt: z.iso.datetime().describe('Publication date of the issue'),
+  series: z.uuid().describe('UUID of the series the issue belongs to'),
 });
 export const createIssueResponseSchema =
   serializedIssueSchema.describe('The created issue');

@@ -2,12 +2,15 @@ import { Cover } from '@entities/issues/cover.entity';
 import { Issue } from '@entities/issues/issue.entity';
 import { Person } from '@entities/person.entity';
 import {
+  BeforeCreate,
+  BeforeUpdate,
   Check,
   Entity,
   Enum,
   ManyToOne,
   PrimaryKey,
   Unique,
+  ValidationError,
   type Ref,
 } from '@mikro-orm/core';
 
@@ -75,4 +78,19 @@ export class IssueContributor {
     nullable: false,
   })
   role!: ContributorRole;
+
+  @BeforeCreate()
+  @BeforeUpdate()
+  validateCoverConsistency() {
+    if (this.role === ContributorRole.CoverArtist && !this.cover) {
+      throw new ValidationError(
+        'A contributor with role COVER_ARTIST must have a cover.',
+      );
+    }
+    if (this.role !== ContributorRole.CoverArtist && this.cover) {
+      throw new ValidationError(
+        'A contributor with a cover must have the role COVER_ARTIST.',
+      );
+    }
+  }
 }

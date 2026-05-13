@@ -16,6 +16,7 @@
     "strict": true,
     "paths": {
       "@entities/*": ["./src/entities/*"],
+      "@commands/*": ["./src/modules/commands/*"],
       "@modules/*": ["./src/modules/*"],
       "@utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"],
