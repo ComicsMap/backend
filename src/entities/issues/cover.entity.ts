@@ -1,3 +1,4 @@
+import { AuditableEntity } from '@entities/auditable.entity';
 import { IssueContributor } from '@entities/issues/issue-contributor.entity';
 import {
   Collection,
@@ -5,9 +6,10 @@ import {
   Index,
   OneToMany,
   type Opt,
-  PrimaryKey,
   Property,
 } from '@mikro-orm/core';
+
+export const URL_MAX_LENGTH = 512;
 
 @Entity({
   tableName: 'covers',
@@ -16,17 +18,11 @@ import {
   name: 'idx_covers_is_variant',
   properties: ['isVariant'],
 })
-export class Cover {
-  @PrimaryKey({
-    name: 'uuid',
-    type: 'uuid',
-    defaultRaw: 'gen_random_uuid()',
-  })
-  readonly uuid: string = crypto.randomUUID();
-
+export class Cover extends AuditableEntity {
   @Property({
     name: 'url',
-    columnType: 'varchar(512)',
+    type: 'varchar',
+    length: URL_MAX_LENGTH,
     nullable: false,
   })
   url!: string;
@@ -50,28 +46,4 @@ export class Cover {
     defaultRaw: "'{}'",
   })
   barcodes: Opt<string[]> = [];
-
-  @Property({
-    name: 'created_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-  })
-  readonly createdAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'updated_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-    onUpdate: () => new Date(),
-  })
-  updatedAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'deleted_at',
-    type: 'timestamp with time zone',
-    nullable: true,
-  })
-  deletedAt?: Date;
 }

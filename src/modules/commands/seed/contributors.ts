@@ -446,4 +446,44 @@ export const seedContributors = (
       },
     ],
   });
+  add(issues.secretAvengers10, {
+    writers: [people.edBrubaker],
+    artists: [people.mikeDeodatoJr],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers10,
+        people: [people.mikeDeodatoJr],
+      },
+    ],
+  });
+  add(issues.secretAvengers11, {
+    writers: [people.edBrubaker],
+    artists: [people.robertoDelatorre],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers11,
+        people: [people.mikeDeodatoJr],
+      },
+    ],
+  });
+  add(issues.secretAvengers12, {
+    writers: [people.edBrubaker],
+    artists: [people.robertoDelatorre],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers12,
+        people: [people.mikeDeodatoJr],
+      },
+    ],
+  });
+  add(issues['secretAvengers12.1'], {
+    writers: [people.edBrubaker],
+    artists: [people.scottGeorgeEaton],
+    coverArtists: [
+      {
+        cover: covers['secretAvengers12.1'],
+        people: [people.mikeDeodatoJr],
+      },
+    ],
+  });
 };

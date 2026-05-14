@@ -85,6 +85,8 @@ export const seedPeople = (em: Em) => {
     davidAja: p({ firstName: 'David', lastName: 'Aja' }),
     stefanoGaudiano: p({ firstName: 'Stefano', lastName: 'Gaudiano' }),
     michaelLark: p({ firstName: 'Michael', lastName: 'Lark' }),
+    robertoDelatorre: p({ firstName: 'Roberto', lastName: 'Delatorre' }),
+    scottGeorgeEaton: p({ firstName: 'Scott George', lastName: 'Eaton' }),
   };
 };
 

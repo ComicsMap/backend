@@ -8,4 +8,9 @@ export const configSchema = z.object({
   POSTGRES_USER: z.string().nonempty(),
   POSTGRES_PASSWORD: z.string().nonempty(),
   POSTGRES_DB: z.string().nonempty(),
+
+  REDIS_HOST: z.string().nonempty(),
+  REDIS_PORT: z.coerce.number().default(6379),
+
+  SECRET_KEY: z.string().nonempty(),
 });

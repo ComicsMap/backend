@@ -253,6 +253,22 @@ export const seedCovers = (em: Em) => {
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/03/51897311e86a1/clean.jpg',
       isVariant: false,
     }),
+    secretAvengers10: c({
+      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/03/5189731b2783d/clean.jpg',
+      isVariant: false,
+    }),
+    secretAvengers11: c({
+      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/03/51897326f40b0/clean.jpg',
+      isVariant: false,
+    }),
+    secretAvengers12: c({
+      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/f0/5189732aa4e79/clean.jpg',
+      isVariant: false,
+    }),
+    'secretAvengers12.1': c({
+      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/a0/579b5ddf0de15/clean.jpg',
+      isVariant: false,
+    }),
   };
 };
 

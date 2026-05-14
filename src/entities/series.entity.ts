@@ -1,33 +1,23 @@
+import { AuditableEntity } from '@entities/auditable.entity';
 import { Issue } from '@entities/issues/issue.entity';
 import {
   Collection,
   Entity,
-  Filter,
   OneToMany,
   type Opt,
-  PrimaryKey,
   Property,
 } from '@mikro-orm/core';
+
+export const TITLE_MAX_LENGTH = 255;
 
 @Entity({
   tableName: 'series',
 })
-@Filter({
-  name: 'notDeleted',
-  cond: { deletedAt: null },
-  default: true,
-})
-export class Series {
-  @PrimaryKey({
-    name: 'uuid',
-    type: 'uuid',
-    defaultRaw: 'gen_random_uuid()',
-  })
-  readonly uuid: string = crypto.randomUUID();
-
+export class Series extends AuditableEntity {
   @Property({
     name: 'title',
-    columnType: 'varchar(255)',
+    type: 'varchar',
+    length: TITLE_MAX_LENGTH,
     nullable: false,
   })
   title!: string;
@@ -48,30 +38,6 @@ export class Series {
 
   @OneToMany(() => Issue, (issue) => issue.series)
   readonly issues = new Collection<Issue>(this);
-
-  @Property({
-    name: 'created_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-  })
-  readonly createdAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'updated_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-    onUpdate: () => new Date(),
-  })
-  updatedAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'deleted_at',
-    type: 'timestamp with time zone',
-    nullable: true,
-  })
-  deletedAt?: Date;
 
   public static formatDisplayTitle(title: string, startYear?: number): string {
     return startYear ? `${title} (${startYear})` : title;

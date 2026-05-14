@@ -1,3 +1,4 @@
+import { AuditableEntity } from '@entities/auditable.entity';
 import { IssueLayout } from '@entities/issue-layout.entity';
 import { IssueContributor } from '@entities/issues/issue-contributor.entity';
 import { Series } from '@entities/series.entity';
@@ -5,16 +6,16 @@ import {
   Collection,
   Entity,
   Enum,
-  Filter,
   Index,
   ManyToOne,
   OneToMany,
   OneToOne,
   type Opt,
-  PrimaryKey,
   Property,
   type Ref,
 } from '@mikro-orm/core';
+
+export const TITLE_MAX_LENGTH = 255;
 
 export enum Publisher {
   Marvel = 'MARVEL',
@@ -32,22 +33,11 @@ export enum Publisher {
   name: 'idx_issues_published_at',
   properties: ['publishedAt'],
 })
-@Filter({
-  name: 'notDeleted',
-  cond: { deletedAt: null },
-  default: true,
-})
-export class Issue {
-  @PrimaryKey({
-    name: 'uuid',
-    type: 'uuid',
-    defaultRaw: 'gen_random_uuid()',
-  })
-  readonly uuid: string = crypto.randomUUID();
-
+export class Issue extends AuditableEntity {
   @Property({
     name: 'title',
-    columnType: 'varchar(255)',
+    type: 'varchar',
+    length: TITLE_MAX_LENGTH,
     nullable: false,
   })
   title!: string;
@@ -97,28 +87,4 @@ export class Issue {
     nullable: false,
   })
   publishedAt!: Date;
-
-  @Property({
-    name: 'created_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-  })
-  readonly createdAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'updated_at',
-    type: 'timestamp with time zone',
-    nullable: false,
-    defaultRaw: 'now()',
-    onUpdate: () => new Date(),
-  })
-  updatedAt: Opt<Date> = new Date();
-
-  @Property({
-    name: 'deleted_at',
-    type: 'timestamp with time zone',
-    nullable: true,
-  })
-  deletedAt?: Date;
 }
