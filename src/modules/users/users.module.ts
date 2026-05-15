@@ -1,4 +1,4 @@
-import { User } from '@entities/user.entity';
+import { User } from '@entities/users/user.entity';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { UsersController } from '@modules/users/users.controller';
 import { UsersService } from '@modules/users/users.service';

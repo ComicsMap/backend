@@ -1,4 +1,4 @@
-import { User } from '@entities/user.entity';
+import { User } from '@entities/users/user.entity';
 import { EntityRepository } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { BANNED_USERNAMES } from '@modules/users/users.constants';

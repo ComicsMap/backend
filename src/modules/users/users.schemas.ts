@@ -2,7 +2,7 @@ import {
   USERNAME_MAX_LENGTH,
   USERNAME_MIN_LENGTH,
   USERNAME_REGEX,
-} from '@entities/user.entity';
+} from '@entities/users/user.entity';
 import { z } from 'zod';
 
 export const userSchema = z.object({

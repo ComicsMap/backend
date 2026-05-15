@@ -486,4 +486,44 @@ export const seedContributors = (
       },
     ],
   });
+  add(issues.secretAvengers13, {
+    writers: [people.nickSpencer],
+    artists: [people.scottGeorgeEaton],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers13,
+        people: [people.adiGranov],
+      },
+    ],
+  });
+  add(issues.secretAvengers14, {
+    writers: [people.nickSpencer],
+    artists: [people.scottGeorgeEaton],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers14,
+        people: [people.adiGranov],
+      },
+    ],
+  });
+  add(issues.secretAvengers15, {
+    writers: [people.nickSpencer],
+    artists: [people.scottGeorgeEaton],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers15,
+        people: [people.adiGranov],
+      },
+    ],
+  });
+  add(issues.secretAvengers16, {
+    writers: [people.warrenEllis],
+    artists: [people.jamieMcKelvie],
+    coverArtists: [
+      {
+        cover: covers.secretAvengers16,
+        people: [people.paulMounts, people.johnCassaday],
+      },
+    ],
+  });
 };

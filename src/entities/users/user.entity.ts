@@ -9,6 +9,7 @@ import {
 
 export const USERNAME_MIN_LENGTH = 3;
 export const USERNAME_MAX_LENGTH = 64;
+export const DISPLAY_NAME_MAX_LENGTH = 64;
 export const USERNAME_REGEX = /^[a-zA-Z0-9._\-']+$/;
 
 export const EMAIL_MAX_LENGTH = 320;
@@ -19,6 +20,10 @@ export const EMAIL_MAX_LENGTH = 320;
 @Index({
   name: 'idx_users_username',
   properties: ['username'],
+})
+@Index({
+  name: 'idx_users_display_name',
+  properties: ['displayName'],
 })
 @Index({
   name: 'idx_users_email',
@@ -45,6 +50,14 @@ export class User {
     unique: true,
   })
   username!: string;
+
+  @Property({
+    name: 'display_name',
+    type: 'varchar',
+    length: DISPLAY_NAME_MAX_LENGTH,
+    nullable: true,
+  })
+  displayName?: Opt<string>;
 
   @Property({
     name: 'email',

@@ -87,6 +87,12 @@ export const seedPeople = (em: Em) => {
     michaelLark: p({ firstName: 'Michael', lastName: 'Lark' }),
     robertoDelatorre: p({ firstName: 'Roberto', lastName: 'Delatorre' }),
     scottGeorgeEaton: p({ firstName: 'Scott George', lastName: 'Eaton' }),
+    adiGranov: p({ firstName: 'Adi', lastName: 'Granov' }),
+    nickSpencer: p({ firstName: 'Nick', lastName: 'Spencer' }),
+    warrenEllis: p({ firstName: 'Warren', lastName: 'Ellis' }),
+    jamieMcKelvie: p({ firstName: 'Jamie', lastName: 'McKelvie' }),
+    johnCassaday: p({ firstName: 'John', lastName: 'Cassaday' }),
+    paulMounts: p({ firstName: 'Paul', lastName: 'Mounts' }),
   };
 };
 
