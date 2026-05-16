@@ -7,7 +7,7 @@ import {
   Publisher,
   ReadingEdge,
   Series,
-} from '@entities/index';
+} from '@comics-map/shared';
 import { EntityManager, RequiredEntityData } from '@mikro-orm/postgresql';
 
 export type Em = EntityManager;

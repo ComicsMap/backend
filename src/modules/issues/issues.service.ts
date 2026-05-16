@@ -1,4 +1,4 @@
-import { Issue } from '@entities/index';
+import { Issue } from '@comics-map/shared';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository, FilterQuery } from '@mikro-orm/postgresql';
 import * as Types from '@modules/issues/issues.types';

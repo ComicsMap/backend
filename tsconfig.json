@@ -15,7 +15,6 @@
     "outDir": "./dist",
     "strict": true,
     "paths": {
-      "@entities/*": ["./src/entities/*"],
       "@interceptors/*": ["./src/interceptors/*"],
       "@commands/*": ["./src/modules/commands/*"],
       "@modules/*": ["./src/modules/*"],

@@ -22,7 +22,6 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@entities/(.*)$': '<rootDir>/src/entities/$1',
     '^@modules/(.*)$': '<rootDir>/src/modules/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@factories/(.*)$': '<rootDir>/test/factories/$1',

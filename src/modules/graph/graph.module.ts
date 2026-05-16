@@ -1,4 +1,4 @@
-import { Issue, IssueLayout, ReadingEdge } from '@entities/index';
+import { Issue, IssueLayout, ReadingEdge } from '@comics-map/shared';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { GraphController } from '@modules/graph/graph.controller';
 import { GraphService } from '@modules/graph/graph.service';

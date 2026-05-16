@@ -1,4 +1,4 @@
-import { User } from '@entities/users/user.entity';
+import { User } from '@comics-map/shared';
 import { AsyncLocalStorage } from 'node:async_hooks';
 
 interface AuditContextStore {

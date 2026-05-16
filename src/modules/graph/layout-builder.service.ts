@@ -3,7 +3,6 @@ import { ELK_LAYOUT_OPTIONS, NODE_SIZE } from '@modules/graph/graph.constants';
 import { Injectable, Logger } from '@nestjs/common';
 import ELK, { type ElkNode } from 'elkjs/lib/elk.bundled.js';
 import Graph from 'graphology';
-import louvain from 'graphology-communities-louvain';
 
 interface BuildResult {
   nodeCount: number;
@@ -75,21 +74,21 @@ export class LayoutBuilderService {
 
     this.addSeriesClusteringEdges(graph, issueRows);
 
-    const communityMap = louvain(graph, { getEdgeWeight: 'weight' });
+    const communityMap = await this.fetchLeidenCommunities(graph);
     const positions = await this.runElkLayout(graph);
 
     const upsertRows: LayoutRow[] = issueRows.map((row) => ({
       uuid: row.uuid,
       x: positions.get(row.uuid)?.x ?? 0,
       y: positions.get(row.uuid)?.y ?? 0,
-      community: communityMap[row.uuid] ?? 0,
+      community: communityMap.get(row.uuid) ?? 0,
       component: componentMap.get(row.uuid) ?? 0,
     }));
 
     await this.persist(upsertRows);
 
     const componentCount = new Set(componentMap.values()).size;
-    const communityCount = new Set(Object.values(communityMap)).size;
+    const communityCount = new Set(communityMap.values()).size;
     const durationMs = Date.now() - startedAt;
 
     this.logger.verbose(
@@ -163,6 +162,38 @@ export class LayoutBuilderService {
     });
 
     return componentMap;
+  }
+
+  private async fetchLeidenCommunities(
+    graph: Graph,
+  ): Promise<Map<string, number>> {
+    const url = process.env.LEIDEN_SERVICE_URL ?? 'http://leiden-service:8000';
+
+    const nodes = graph.nodes();
+    const edges = graph.edges().map((edgeId) => {
+      const [source, target] = graph.extremities(edgeId);
+      const weight =
+        (graph.getEdgeAttribute(edgeId, 'weight') as number | undefined) ?? 1;
+      return { source, target, weight };
+    });
+
+    const response = await fetch(`${url}/communities`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nodes, edges }),
+    });
+
+    if (!response.ok) {
+      const body = await response.text();
+      throw new Error(
+        `leiden-service returned ${response.status}: ${body.slice(0, 200)}`,
+      );
+    }
+
+    const json = (await response.json()) as {
+      communities: Record<string, number>;
+    };
+    return new Map(Object.entries(json.communities));
   }
 
   private async runElkLayout(

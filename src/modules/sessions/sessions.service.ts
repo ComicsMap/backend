@@ -1,5 +1,9 @@
 import { wrap } from '@mikro-orm/core';
-import { AUTH_COOKIE_NAME } from '@modules/sessions/sessions.constants';
+import {
+  AUTH_COOKIE_NAME,
+  REMEMBER_ME_SESSION_TIMEOUT_MS,
+  SESSION_TIMEOUT_MS,
+} from '@modules/sessions/sessions.constants';
 import { Injectable } from '@nestjs/common';
 import type { Request, Response } from 'express';
 
@@ -10,15 +14,29 @@ export class SessionsService {
       req.login(req.user!, (error: Error) => {
         if (error) return reject(error);
 
-        if (rememberMe) {
-          req.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days
-        } else {
-          req.session.cookie.maxAge = 24 * 60 * 60 * 1000; // 1 day
-        }
+        const expiresIn = rememberMe
+          ? REMEMBER_ME_SESSION_TIMEOUT_MS
+          : SESSION_TIMEOUT_MS;
 
-        resolve(wrap(req.user!).toObject());
+        req.session.cookie.maxAge = expiresIn;
+
+        resolve({
+          user: wrap(req.user!).toObject(),
+          expiresAt: new Date(Date.now() + expiresIn),
+          expiresIn,
+        });
       });
     });
+  }
+
+  public retrieve(req: Request) {
+    const expiresIn = req.session.cookie.maxAge ?? SESSION_TIMEOUT_MS;
+
+    return {
+      user: req.user!,
+      expiresAt: new Date(Date.now() + expiresIn),
+      expiresIn,
+    };
   }
 
   public delete(req: Request, res: Response) {

@@ -1,8 +1,8 @@
+import { Cover, Issue, Person } from '@comics-map/shared';
 import { Covers } from '@commands/seed/covers';
 import { addContributors, Em } from '@commands/seed/helpers';
 import { Issues } from '@commands/seed/issues';
 import { People } from '@commands/seed/people';
-import { Cover, Issue, Person } from '@entities/index';
 
 export const seedContributors = (
   em: Em,

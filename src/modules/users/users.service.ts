@@ -1,8 +1,7 @@
-import { User } from '@entities/users/user.entity';
+import { CreateUserData, User } from '@comics-map/shared';
 import { EntityRepository } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { BANNED_USERNAMES } from '@modules/users/users.constants';
-import * as Types from '@modules/users/users.types';
 import {
   BadRequestException,
   ConflictException,
@@ -45,7 +44,7 @@ export class UsersService {
     return user;
   }
 
-  public async create(data: Types.CreateUserData): Promise<User> {
+  public async create(data: CreateUserData): Promise<User> {
     if (BANNED_USERNAMES.includes(data.username))
       throw new BadRequestException(
         `Username "${data.username}" is not allowed`,

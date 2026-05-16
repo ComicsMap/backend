@@ -1,7 +1,8 @@
-import { Series } from '@entities/series.entity';
+import { Series } from '@comics-map/shared';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { CLUSTER_LOD_AREA_RATIO } from '@modules/graph/graph.constants';
 import * as Types from '@modules/graph/graph.types';
+import { LayoutBuilderService } from '@modules/graph/layout-builder.service';
 import { Injectable } from '@nestjs/common';
 
 interface WindowParams {
@@ -57,7 +58,14 @@ interface BoundsRow {
 
 @Injectable()
 export class GraphService {
-  constructor(private readonly em: EntityManager) {}
+  constructor(
+    private readonly em: EntityManager,
+    private readonly layoutBuilder: LayoutBuilderService,
+  ) {}
+
+  async rebuildLayout(): ReturnType<LayoutBuilderService['rebuild']> {
+    return this.layoutBuilder.rebuild();
+  }
 
   async getMeta(): Promise<Types.GetMetaResponse> {
     const knex = this.em.getKnex();

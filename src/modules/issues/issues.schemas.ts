@@ -1,4 +1,4 @@
-import * as Entities from '@entities/index';
+import { ContributorRole, Publisher } from '@comics-map/shared';
 import { z } from 'zod';
 
 const populatedPersonSchema = z.object({
@@ -24,14 +24,14 @@ const populatedContributorSchema = z.object({
   issue: z.uuid(),
   person: z.union([z.uuid(), populatedPersonSchema]),
   cover: z.union([z.uuid(), populatedCoverSchema]).nullish(),
-  role: z.enum(Entities.ContributorRole),
+  role: z.enum(ContributorRole),
 });
 
 export const issueSchema = z.object({
   uuid: z.uuid().describe('UUID of the issue'),
   title: z.string().describe('Title of the issue'),
   synopsis: z.string().nullish().describe('Synopsis of the issue'),
-  publisher: z.enum(Entities.Publisher).describe('Publisher of the issue'),
+  publisher: z.enum(Publisher).describe('Publisher of the issue'),
   publishedAt: z.date().describe('Publication date of the issue'),
   createdAt: z.date().describe('Creation timestamp of the issue'),
   updatedAt: z.date().describe('Last update timestamp of the issue'),
@@ -132,13 +132,11 @@ export const listIssuesQuerySchema = z.object({
     .optional()
     .describe('Keyword to search in issue titles and authors'),
   publisher: z
-    .union([z.enum(Entities.Publisher), z.array(z.enum(Entities.Publisher))])
+    .union([z.enum(Publisher), z.array(z.enum(Publisher))])
     .optional()
     .transform(
       (value) =>
-        (Array.isArray(value) ? value : [value]).filter(
-          Boolean,
-        ) as Entities.Publisher[],
+        (Array.isArray(value) ? value : [value]).filter(Boolean) as Publisher[],
     )
     .describe('Filter issues by publisher'),
   barcode: z
@@ -176,7 +174,7 @@ export const listIssuesResponseSchema = z.object({
 export const createIssueBodySchema = z.object({
   title: z.string().describe('Title of the issue'),
   synopsis: z.string().nullish().describe('Synopsis of the issue'),
-  publisher: z.enum(Entities.Publisher).describe('Publisher of the issue'),
+  publisher: z.enum(Publisher).describe('Publisher of the issue'),
   publishedAt: z.iso.datetime().describe('Publication date of the issue'),
   series: z.uuid().describe('UUID of the series the issue belongs to'),
 });
@@ -200,10 +198,7 @@ export const partialUpdateIssueParamsSchema = z.object({
 export const partialUpdateIssueBodySchema = z.object({
   title: z.string().optional().describe('Title of the issue'),
   synopsis: z.string().nullish().optional().describe('Synopsis of the issue'),
-  publisher: z
-    .enum(Entities.Publisher)
-    .optional()
-    .describe('Publisher of the issue'),
+  publisher: z.enum(Publisher).optional().describe('Publisher of the issue'),
   publishedAt: z.iso
     .datetime()
     .optional()

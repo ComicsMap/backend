@@ -10,7 +10,7 @@ export class UsersController {
 
   @Post()
   @ZodSerializerDto(DTOs.CreateUserResponse)
-  public async create(@Body() data: DTOs.CreateUserBody) {
+  public async create(@Body() data: DTOs.CreateUserData) {
     const user = await this.usersService.create(data);
     return wrap(user).toObject();
   }

@@ -1,4 +1,4 @@
-import { User } from '@entities/users/user.entity';
+import { User } from '@comics-map/shared';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { Injectable } from '@nestjs/common';
 import { PassportSerializer } from '@nestjs/passport';

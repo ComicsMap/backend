@@ -20,14 +20,19 @@ export const seedReadingEdges = (em: Em, issues: Issues) => {
   );
   readingChain(
     em,
+    issues.venom250,
     issues.venom251,
     issues.venom252,
     issues.venom253,
     issues.venom254,
     issues.venom255,
+    issues.venom256,
+    issues.theAmazingSpiderMan26,
+    issues.venom257,
+    issues.theAmazingSpiderMan27,
+    issues.venom258,
   );
 
-  readingChain(em, issues.theAmazingSpiderMan26, issues.venom257);
   readingChain(em, issues.webOfVenom1, issues.venom258);
 
   readingChain(

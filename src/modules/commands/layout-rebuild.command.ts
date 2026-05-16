@@ -1,4 +1,4 @@
-import { LayoutBuilderService } from '@modules/graph/layout-builder.service';
+import { GraphService } from '@modules/graph/graph.service';
 import { Logger } from '@nestjs/common';
 import { Command, CommandRunner } from 'nest-commander';
 
@@ -9,11 +9,11 @@ import { Command, CommandRunner } from 'nest-commander';
 export class LayoutRebuildCommand extends CommandRunner {
   private readonly logger = new Logger(LayoutRebuildCommand.name);
 
-  constructor(private readonly layoutBuilder: LayoutBuilderService) {
+  constructor(private readonly graphService: GraphService) {
     super();
   }
 
   async run(): Promise<void> {
-    await this.layoutBuilder.rebuild();
+    await this.graphService.rebuildLayout();
   }
 }
