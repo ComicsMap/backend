@@ -1,4 +1,4 @@
-import { Cover, Issue, Person } from '@comics-map/shared';
+import { Cover, Issue, Person } from '@comics-map/shared/entities';
 import { Covers } from '@commands/seed/covers';
 import { addContributors, Em } from '@commands/seed/helpers';
 import { Issues } from '@commands/seed/issues';

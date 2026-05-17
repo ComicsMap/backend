@@ -1,4 +1,4 @@
-import { Issue } from '@comics-map/shared';
+import { Issue } from '@comics-map/shared/entities';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { IssuesController } from '@modules/issues/issues.controller';
 import { IssuesService } from '@modules/issues/issues.service';

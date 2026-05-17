@@ -1,4 +1,5 @@
-import { CreateUserData, User } from '@comics-map/shared';
+import { User } from '@comics-map/shared/entities';
+import { CreateUserData } from '@comics-map/shared/types';
 import { EntityRepository } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { BANNED_USERNAMES } from '@modules/users/users.constants';

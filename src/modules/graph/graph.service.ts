@@ -1,4 +1,4 @@
-import { Series } from '@comics-map/shared';
+import { Series } from '@comics-map/shared/entities';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { CLUSTER_LOD_AREA_RATIO } from '@modules/graph/graph.constants';
 import * as Types from '@modules/graph/graph.types';

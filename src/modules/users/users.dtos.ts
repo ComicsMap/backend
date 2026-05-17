@@ -1,7 +1,7 @@
 import {
   createUserDataSchema,
   createUserResponseSchema,
-} from '@comics-map/shared';
+} from '@comics-map/shared/schemas';
 import { createZodDto } from 'nestjs-zod';
 
 export class CreateUserData extends createZodDto(createUserDataSchema) {}

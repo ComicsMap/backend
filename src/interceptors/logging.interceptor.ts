@@ -1,4 +1,4 @@
-import { User } from '@comics-map/shared';
+import { User } from '@comics-map/shared/entities';
 import type {
   CallHandler,
   ExecutionContext,

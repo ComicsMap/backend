@@ -1,4 +1,4 @@
-import { AuditableEntity } from '@comics-map/shared';
+import { AuditableEntity } from '@comics-map/shared/entities';
 import { EventArgs, EventSubscriber, Reference } from '@mikro-orm/core';
 import { AuditContext } from '@modules/audit/audit-context';
 
