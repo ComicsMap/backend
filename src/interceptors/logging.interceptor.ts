@@ -13,6 +13,8 @@ interface HttpError extends Error {
   getStatus?(): number;
 }
 
+const MIN_LOGGING_DURATION_MS = 250;
+
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
   private readonly logger = new Logger('HTTP');
@@ -27,6 +29,7 @@ export class LoggingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap(() => {
         const duration = Date.now() - start;
+        if (duration < MIN_LOGGING_DURATION_MS) return;
         const user: Optional<User> = request.user;
 
         this.logger.log(

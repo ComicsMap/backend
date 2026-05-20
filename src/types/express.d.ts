@@ -5,3 +5,9 @@ declare module 'express' {
     user: Optional<User>;
   }
 }
+
+declare module 'express-session' {
+  interface SessionData {
+    oauthRedirect?: string;
+  }
+}

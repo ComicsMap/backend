@@ -19,6 +19,10 @@ export const seedSeries = (em: Em) => {
       title: 'The Amazing Spider-Man',
       startYear: 2025,
     }),
+    deathSpiral2026: s({
+      title: 'Amazing Spider-Man/Venom: Death Spiral',
+      startYear: 2026,
+    }),
     ultimateUniverseTwoYearsIn: s({
       title: 'Ultimate Universe: Two Years In',
       startYear: 2025,

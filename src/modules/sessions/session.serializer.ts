@@ -15,9 +15,9 @@ export class SessionSerializer extends PassportSerializer {
 
   async deserializeUser(
     uuid: string,
-    done: (err: unknown, user: Optional<User>) => void,
+    done: (err: unknown, user: User | false) => void,
   ): Promise<void> {
     const user = await this.em.fork().findOne(User, { uuid });
-    done(null, user ?? undefined);
+    done(null, user ?? false);
   }
 }

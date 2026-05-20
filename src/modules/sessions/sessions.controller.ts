@@ -1,6 +1,9 @@
+import { ConfigService } from '@modules/config/config.service';
 import { AuthenticatedGuard } from '@modules/sessions/authenticated.guard';
+import { GoogleAuthGuard } from '@modules/sessions/guards/google-auth.guard';
 import * as DTOs from '@modules/sessions/sessions.dtos';
 import { SessionsService } from '@modules/sessions/sessions.service';
+import { isRelativePath } from '@modules/sessions/sessions.utils';
 import {
   Body,
   Controller,
@@ -19,7 +22,10 @@ import { ZodSerializerDto } from 'nestjs-zod';
 
 @Controller('sessions')
 export class SessionsController {
-  constructor(private readonly sessionsService: SessionsService) {}
+  constructor(
+    private readonly sessionsService: SessionsService,
+    private readonly configService: ConfigService,
+  ) {}
 
   @Post()
   @ZodSerializerDto(DTOs.CreateSessionResponse)
@@ -44,5 +50,26 @@ export class SessionsController {
     @Res({ passthrough: true }) res: Response,
   ) {
     return this.sessionsService.delete(req, res);
+  }
+
+  @Get('/google')
+  @UseGuards(GoogleAuthGuard)
+  public google() {}
+
+  @Get('/google/callback')
+  @UseGuards(AuthGuard('google'))
+  public async googleCallback(
+    @Req() req: Request,
+    @Res() res: Response,
+  ): Promise<void> {
+    await this.sessionsService.create(req);
+
+    const frontendUrl = this.configService.get('FRONTEND_URL');
+    const redirect = req.session.oauthRedirect;
+    delete req.session.oauthRedirect;
+
+    const safeRedirect = redirect && isRelativePath(redirect) ? redirect : '/';
+    const target = new URL(safeRedirect, frontendUrl);
+    res.redirect(target.toString());
   }
 }

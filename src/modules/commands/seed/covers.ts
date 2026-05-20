@@ -151,6 +151,12 @@ export const seedCovers = (em: Em) => {
       isVariant: false,
     }),
 
+    deathSpiral1: c({
+      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/b0/698df72fceb00/clean.jpg',
+      isVariant: false,
+      barcodes: [],
+    }),
+
     ultimateUniverseTwoYearsIn: {
       default: c({
         url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/70/691f324c6c18b/clean.jpg',

@@ -1,8 +1,8 @@
 import { User } from '@comics-map/shared/entities';
-import { CreateUserData } from '@comics-map/shared/types';
-import { EntityRepository } from '@mikro-orm/core';
+import { EntityRepository, RequiredEntityData } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { BANNED_USERNAMES } from '@modules/users/users.constants';
+import * as Types from '@modules/users/users.types';
 import {
   BadRequestException,
   ConflictException,
@@ -10,6 +10,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import bcrypt from 'bcrypt';
+import slugify from 'slugify';
 
 const HASH_ROUNDS = 10;
 
@@ -45,7 +46,70 @@ export class UsersService {
     return user;
   }
 
-  public async create(data: CreateUserData): Promise<User> {
+  public async findOrCreateFromGoogle(
+    data: Types.GoogleProfileData,
+  ): Promise<User> {
+    const em = this.usersRepository.getEntityManager();
+
+    const byGoogleId = await this.usersRepository.findOne({
+      googleId: data.googleId,
+    });
+    if (byGoogleId) {
+      let dirty = false;
+      if (data.avatarUrl && byGoogleId.avatarUrl !== data.avatarUrl) {
+        byGoogleId.avatarUrl = data.avatarUrl;
+        dirty = true;
+      }
+      if (dirty) await em.flush();
+      return byGoogleId;
+    }
+
+    const byEmail = await this.usersRepository.findOne({ email: data.email });
+    if (byEmail) {
+      byEmail.googleId = data.googleId;
+      if (data.avatarUrl) byEmail.avatarUrl = data.avatarUrl;
+      if (!byEmail.displayName && data.displayName)
+        byEmail.displayName = data.displayName;
+      await em.flush();
+      return byEmail;
+    }
+
+    const username = await this.generateUniqueUsername(
+      data.displayName ?? data.email.split('@')[0],
+    );
+
+    const user = this.usersRepository.create({
+      username,
+      email: data.email,
+      displayName: data.displayName,
+      avatarUrl: data.avatarUrl,
+      googleId: data.googleId,
+    });
+
+    await em.persist(user).flush();
+    return user;
+  }
+
+  private async generateUniqueUsername(seed: string): Promise<string> {
+    const base =
+      slugify(seed, { lower: true, strict: true, replacement: '_' }).slice(
+        0,
+        50,
+      ) || 'user';
+
+    let candidate = base;
+    let suffix = 1;
+    while (
+      BANNED_USERNAMES.includes(candidate) ||
+      (await this.usersRepository.findOne({ username: candidate }))
+    ) {
+      suffix += 1;
+      candidate = `${base}_${suffix}`;
+    }
+    return candidate;
+  }
+
+  public async create(data: RequiredEntityData<User>): Promise<User> {
     if (BANNED_USERNAMES.includes(data.username))
       throw new BadRequestException(
         `Username "${data.username}" is not allowed`,
@@ -63,7 +127,7 @@ export class UsersService {
     if (existingUser[1])
       throw new ConflictException(`Email ${data.email} is already in use`);
 
-    const hashedPassword = UsersService.hashPassword(data.password);
+    const hashedPassword = UsersService.hashPassword(data.password as string);
 
     const user = this.usersRepository.create({
       ...data,

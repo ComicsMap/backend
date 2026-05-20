@@ -17,15 +17,16 @@ export const seedReadingEdges = (em: Em, issues: Issues) => {
     issues.allNewVenom9,
     issues.allNewVenom10,
     issues.venom250,
-  );
-  readingChain(
-    em,
     issues.venom250,
     issues.venom251,
     issues.venom252,
     issues.venom253,
     issues.venom254,
-    issues.venom255,
+    issues.deathSpiral1,
+  );
+  readingChain(em, issues.venom255, issues.theAmazingSpiderMan24);
+  readingChain(
+    em,
     issues.venom256,
     issues.theAmazingSpiderMan26,
     issues.venom257,

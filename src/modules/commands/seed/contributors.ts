@@ -252,6 +252,14 @@ export const seedContributors = (
     ],
   });
 
+  add(issues.deathSpiral1, {
+    writers: [people.alEwing, people.joeKelly, people.charlesSoule],
+    artists: [people.jesusSaiz],
+    coverArtists: [
+      { cover: covers.deathSpiral1, people: [people.edMcguinness] },
+    ],
+  });
+
   add(issues.ultimateUniverseTwoYearsIn, {
     writers: [people.denizCamp, people.alexPaknadel],
     artists: [

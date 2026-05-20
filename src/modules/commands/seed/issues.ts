@@ -243,6 +243,15 @@ export const seedIssues = (em: Em, series: Series) => {
       issueNumber: '27',
     }),
 
+    deathSpiral1: i({
+      title: 'Amazing Spider-Man/Venom: Death Spiral #1',
+      synopsis:
+        "FIRST YOUR FRIENDS. THEN YOUR FAMILY. THEN YOU. The next epic SPIDER-MAN and VENOM crossover starts here and continues through April! A new super-powered serial killer is on the loose and they're coming for Spidey, Venom and everyone in between. But what terrible secret has CARNAGE learned, and what does it have to do with Spider-Man?!",
+      publishedAt: new Date('2026-02-25'),
+      series: series.deathSpiral2026,
+      issueNumber: '1',
+    }),
+
     ultimateUniverseTwoYearsIn: i({
       title: 'Ultimate Universe: Two Years In',
       synopsis:
