@@ -39,6 +39,15 @@ export const seedIssues = (em: Em, series: Series) => {
       issueNumber: '2',
     }),
 
+    kingInBlack1: i({
+      title: 'King in Black #1',
+      synopsis:
+        "DARKNESS REIGNS! After a campaign across the galaxy, Knull's death march arrives to Earth and, worse yet, he hasn't come alone! With an army of hundreds of thousands of symbiote dragons at his command, the King in Black is a force unlike any Earth's heroes have ever faced. EDDIE BROCK, A.K.A. VENOM has seen firsthand the chaos that even one of Knull's symbiotic monsters can wreak - will he survive an encounter with the God of the Abyss himself? From Donny Cates, Ryan Stegman, JP Mayer, Frank Martin and VC's Clayton Cowles comes the definitive chapter in their two-year-long VENOM saga that changed everything you thought you knew about symbiotes!",
+      publishedAt: new Date('2020-12-02'),
+      series: series.kingInBlack,
+      issueNumber: '1',
+    }),
+
     allNewVenom1: i({
       title: 'All-New Venom #1',
       synopsis:

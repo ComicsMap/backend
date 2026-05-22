@@ -3,6 +3,10 @@ import { Em, makeSeries } from '@commands/seed/helpers';
 export const seedSeries = (em: Em) => {
   const s = makeSeries(em);
   return {
+    kingInBlack: s({
+      title: 'King in Black',
+      startYear: 2020,
+    }),
     allNewVenom: s({
       title: 'All-New Venom',
       startYear: 2024,

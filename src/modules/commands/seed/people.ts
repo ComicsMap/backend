@@ -93,6 +93,10 @@ export const seedPeople = (em: Em) => {
     jamieMcKelvie: p({ firstName: 'Jamie', lastName: 'McKelvie' }),
     johnCassaday: p({ firstName: 'John', lastName: 'Cassaday' }),
     paulMounts: p({ firstName: 'Paul', lastName: 'Mounts' }),
+    peachMamoko: p({ firstName: 'Peach', lastName: 'Mamoko' }),
+    donnyCates: p({ firstName: 'Donny', lastName: 'Cates' }),
+    ianBederman: p({ firstName: 'Ian', lastName: 'Bederman' }),
+    ejSu: p({ firstName: 'E.J.', lastName: 'Su' }),
   };
 };
 

@@ -23,10 +23,11 @@ export const seedReadingEdges = (em: Em, issues: Issues) => {
     issues.venom253,
     issues.venom254,
     issues.deathSpiral1,
-  );
-  readingChain(em, issues.venom255, issues.theAmazingSpiderMan24);
-  readingChain(
-    em,
+    // A revoir
+    issues.theAmazingSpiderMan23,
+    issues.venom255,
+    issues.theAmazingSpiderMan24,
+    issues.theAmazingSpiderMan25,
     issues.venom256,
     issues.theAmazingSpiderMan26,
     issues.venom257,

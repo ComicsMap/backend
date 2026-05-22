@@ -18,11 +18,24 @@ export const seedCovers = (em: Em) => {
     shield1: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/60/5c59c10b90fa9/clean.jpg',
       isVariant: false,
+      barcodes: ['75960607530000111'],
     }),
     shield2: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/60/5c59c988e6107/clean.jpg',
       isVariant: false,
     }),
+
+    kingInBlack1: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/c0/601afd588b59d/clean.jpg',
+        isVariant: false,
+      }),
+      insignia: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/90/5fbd3fc9c171f/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960609863700120'],
+      }),
+    },
 
     allNewVenom1: {
       default: c({
@@ -87,38 +100,76 @@ export const seedCovers = (em: Em) => {
       barcodes: ['75960621047301011'],
     }),
 
-    venom250: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/10/68c9b5d62d735/clean.jpg',
-      isVariant: false,
-    }),
+    venom250: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/10/68c9b5d62d735/clean.jpg',
+        isVariant: false,
+      }),
+      peachMamoko: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/f0/68c9bef53f07b/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621330625081'],
+      }),
+    },
     venom251: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/b0/6903bd4469fd1/clean.jpg',
       isVariant: false,
+      barcodes: ['75960621330625111'],
     }),
     venom252: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/70/691f324c74c1e/clean.jpg',
       isVariant: false,
+      barcodes: ['75960621330625211'],
     }),
-    venom253: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/50/6957e871a0c88/clean.jpg',
-      isVariant: false,
-    }),
+    venom253: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/50/6957e871a0c88/clean.jpg',
+        isVariant: false,
+      }),
+      cosmicInvasion: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/90/6944331fea93b/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621330625331'],
+      }),
+    },
     venom254: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/00/697b8ad47f0b7/clean.jpg',
       isVariant: false,
+      barcodes: ['75960621330625411'],
     }),
-    venom255: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/50/69a0877e7cf5d/clean.jpg',
-      isVariant: false,
-    }),
-    venom256: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/d0/69b427274b4c8/clean.jpg',
-      isVariant: false,
-    }),
-    venom257: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/d0/69ce9404c731f/clean.jpg',
-      isVariant: false,
-    }),
+    venom255: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/50/69a0877e7cf5d/clean.jpg',
+        isVariant: false,
+      }),
+      targetVariant: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/1/b0/69a08894779b4/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621330625551'],
+      }),
+    },
+    venom256: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/d0/69b427274b4c8/clean.jpg',
+        isVariant: false,
+      }),
+      targetVariant: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/20/69cd329f6ceb7/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621330625651'],
+      }),
+    },
+    venom257: {
+      default: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/d0/69ce9404c731f/clean.jpg',
+        isVariant: false,
+      }),
+      ejSu: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/c0/69ce931f689b8/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621330625741'],
+      }),
+    },
     venom258: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/b0/69974a110d5e6/clean.jpg',
       isVariant: false,

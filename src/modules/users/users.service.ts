@@ -1,6 +1,8 @@
 import { User } from '@comics-map/shared/entities';
 import { EntityRepository, RequiredEntityData } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
+import { CollectionsService } from '@modules/collections/collections.service';
+import { WishlistsService } from '@modules/collections/wishlists.service';
 import { BANNED_USERNAMES } from '@modules/users/users.constants';
 import * as Types from '@modules/users/users.types';
 import {
@@ -19,6 +21,8 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly usersRepository: EntityRepository<User>,
+    private readonly collectionsService: CollectionsService,
+    private readonly wishlistsService: WishlistsService,
   ) {}
 
   public async validateUser(
@@ -85,9 +89,15 @@ export class UsersService {
       avatarUrl: data.avatarUrl,
       googleId: data.googleId,
     });
+    this.createUserCollections(user);
 
-    await em.persist(user).flush();
+    await em.flush();
     return user;
+  }
+
+  private createUserCollections(user: User): void {
+    this.collectionsService.initUserCollection(user);
+    this.wishlistsService.initUserWishlist(user);
   }
 
   private async generateUniqueUsername(seed: string): Promise<string> {
@@ -129,12 +139,15 @@ export class UsersService {
 
     const hashedPassword = UsersService.hashPassword(data.password as string);
 
+    const em = this.usersRepository.getEntityManager();
+
     const user = this.usersRepository.create({
       ...data,
       password: hashedPassword,
     });
+    this.createUserCollections(user);
 
-    await this.usersRepository.getEntityManager().persist(user).flush();
+    await em.flush();
 
     return user;
   }

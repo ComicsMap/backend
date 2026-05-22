@@ -1,60 +1,17 @@
 import { Series } from '@comics-map/shared/entities';
+import {
+  ClusterNode,
+  DetailNode,
+  GetMetaResponse,
+  GetWindowResponse,
+  GraphEdge,
+  LodLevel,
+} from '@comics-map/shared/types';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { CLUSTER_LOD_AREA_RATIO } from '@modules/graph/graph.constants';
 import * as Types from '@modules/graph/graph.types';
 import { LayoutBuilderService } from '@modules/graph/layout-builder.service';
 import { Injectable } from '@nestjs/common';
-
-interface WindowParams {
-  xMin: number;
-  xMax: number;
-  yMin: number;
-  yMax: number;
-  visibleXMin?: number;
-  visibleXMax?: number;
-  visibleYMin?: number;
-  visibleYMax?: number;
-  componentId?: number;
-  maxNodes: number;
-}
-
-interface DetailRow {
-  uuid: string;
-  x: number;
-  y: number;
-  communityId: number;
-  componentId: number;
-  title: string;
-  publishedAt: Date;
-  coverUrl: Nullable<string>;
-  seriesUuid: Nullable<string>;
-  seriesTitle: Nullable<string>;
-  seriesStartYear: Nullable<number>;
-}
-
-interface ClusterRow {
-  communityId: number;
-  componentId: number;
-  centroidX: number;
-  centroidY: number;
-  xMin: number;
-  xMax: number;
-  yMin: number;
-  yMax: number;
-  nodeCount: number;
-}
-
-interface EdgeRow {
-  fromUuid: string;
-  toUuid: string;
-}
-
-interface BoundsRow {
-  xMin: Nullable<number>;
-  xMax: Nullable<number>;
-  yMin: Nullable<number>;
-  yMax: Nullable<number>;
-}
 
 @Injectable()
 export class GraphService {
@@ -67,9 +24,9 @@ export class GraphService {
     return this.layoutBuilder.rebuild();
   }
 
-  async getMeta(): Promise<Types.GetMetaResponse> {
+  async getMeta(): Promise<GetMetaResponse> {
     const knex = this.em.getKnex();
-    const { rows } = await knex.raw<{ rows: BoundsRow[] }>(`
+    const { rows } = await knex.raw<{ rows: Types.BoundsRow[] }>(`
       SELECT
         MIN(x)::float8 AS "xMin",
         MAX(x)::float8 AS "xMax",
@@ -89,7 +46,7 @@ export class GraphService {
     };
   }
 
-  async getWindow(params: WindowParams): Promise<Types.GetWindowResponse> {
+  async getWindow(params: Types.WindowParams): Promise<GetWindowResponse> {
     const knex = this.em.getKnex();
     const { xMin, xMax, yMin, yMax, componentId, maxNodes } = params;
 
@@ -145,8 +102,8 @@ export class GraphService {
       yMax: number;
       componentId?: number;
     },
-  ): Promise<Types.GetWindowResponse> {
-    const { rows } = await knex.raw<{ rows: ClusterRow[] }>(
+  ): Promise<GetWindowResponse> {
+    const { rows } = await knex.raw<{ rows: Types.ClusterRow[] }>(
       `
       SELECT
         community_id   AS "communityId",
@@ -169,8 +126,8 @@ export class GraphService {
         : [xMin, xMax, yMin, yMax],
     );
 
-    const nodes: Types.ClusterNode[] = rows.map((row) => ({
-      kind: 'cluster',
+    const nodes: ClusterNode[] = rows.map((row) => ({
+      kind: LodLevel.Cluster,
       communityId: row.communityId,
       componentId: row.componentId,
       position: { x: row.centroidX, y: row.centroidY },
@@ -184,7 +141,7 @@ export class GraphService {
     }));
 
     return {
-      lodLevel: 'cluster',
+      lodLevel: LodLevel.Cluster,
       nodes,
       edges: [],
       meta: {
@@ -211,7 +168,7 @@ export class GraphService {
       componentId?: number;
       maxNodes: number;
     },
-  ): Promise<Types.GetWindowResponse> {
+  ): Promise<GetWindowResponse> {
     const componentClause =
       componentId !== undefined ? 'AND il.component_id = ?' : '';
 
@@ -221,7 +178,7 @@ export class GraphService {
         ? [...baseParams, componentId, maxNodes + 1]
         : [...baseParams, maxNodes + 1];
 
-    const { rows } = await knex.raw<{ rows: DetailRow[] }>(
+    const { rows } = await knex.raw<{ rows: Types.DetailRow[] }>(
       `
       SELECT
         i.uuid,
@@ -259,8 +216,8 @@ export class GraphService {
     const trimmed = truncated ? rows.slice(0, maxNodes) : rows;
     const uuidArray = trimmed.map((r) => r.uuid);
 
-    const nodes: Types.DetailNode[] = trimmed.map((row) => ({
-      kind: 'detail',
+    const nodes: DetailNode[] = trimmed.map((row) => ({
+      kind: LodLevel.Detail,
       uuid: row.uuid,
       position: { x: row.x, y: row.y },
       communityId: row.communityId,
@@ -274,14 +231,14 @@ export class GraphService {
         : null,
       data: {
         title: row.title,
-        publishedAt: row.publishedAt,
+        publishedAt: new Date(row.publishedAt),
         coverUrl: row.coverUrl,
       },
     }));
 
-    let edges: Types.GraphEdge[] = [];
+    let edges: GraphEdge[] = [];
     if (uuidArray.length > 0) {
-      const { rows: edgeRows } = await knex.raw<{ rows: EdgeRow[] }>(
+      const { rows: edgeRows } = await knex.raw<{ rows: Types.EdgeRow[] }>(
         `
         SELECT DISTINCT re.from_uuid AS "fromUuid", re.to_uuid AS "toUuid"
         FROM reading_edges re
@@ -298,7 +255,7 @@ export class GraphService {
     }
 
     return {
-      lodLevel: 'detail',
+      lodLevel: LodLevel.Detail,
       nodes,
       edges,
       meta: {

@@ -57,6 +57,21 @@ export const seedContributors = (
     ],
   });
 
+  add(issues.kingInBlack1, {
+    writers: [people.donnyCates],
+    artists: [people.ryanStegman],
+    coverArtists: [
+      {
+        cover: covers.kingInBlack1.default,
+        people: [people.ryanStegman],
+      },
+      {
+        cover: covers.kingInBlack1.insignia,
+        people: [people.ianBederman],
+      },
+    ],
+  });
+
   add(issues.allNewVenom1, {
     writers: [people.alEwing],
     artists: [people.carlosGomez],
@@ -127,7 +142,10 @@ export const seedContributors = (
 
   add(issues.venom250, {
     writers: [people.alEwing, people.charlesSoule],
-    coverArtists: [{ cover: covers.venom250, people: [people.ryanStegman] }],
+    coverArtists: [
+      { cover: covers.venom250.default, people: [people.ryanStegman] },
+      { cover: covers.venom250.peachMamoko, people: [people.peachMamoko] },
+    ],
   });
   add(issues.venom251, {
     writers: [people.alEwing],
@@ -152,7 +170,10 @@ export const seedContributors = (
   add(issues.venom253, {
     writers: [people.alEwing],
     artists: [people.carlosGomez],
-    coverArtists: [{ cover: covers.venom253, people: [people.carlosGomez] }],
+    coverArtists: [
+      { cover: covers.venom253.default, people: [people.carlosGomez] },
+      { cover: covers.venom253.cosmicInvasion, people: [people.unknown] },
+    ],
   });
   add(issues.venom254, {
     writers: [people.alEwing],
@@ -167,20 +188,25 @@ export const seedContributors = (
   add(issues.venom255, {
     writers: [people.alEwing],
     artists: [people.carlosGomez],
-    coverArtists: [{ cover: covers.venom255, people: [people.carlosGomez] }],
+    coverArtists: [
+      { cover: covers.venom255.default, people: [people.carlosGomez] },
+      { cover: covers.venom255.targetVariant, people: [people.markBagley] },
+    ],
   });
   add(issues.venom256, {
     writers: [people.alEwing],
     artists: [people.carlosGomez],
     coverArtists: [
-      { cover: covers.venom256, people: [people.giuseppeCamuncoli] },
+      { cover: covers.venom256.default, people: [people.giuseppeCamuncoli] },
+      { cover: covers.venom256.targetVariant, people: [people.markBagley] },
     ],
   });
   add(issues.venom257, {
     writers: [people.charlesSoule],
     artists: [people.javierPina],
     coverArtists: [
-      { cover: covers.venom257, people: [people.giuseppeCamuncoli] },
+      { cover: covers.venom257.default, people: [people.giuseppeCamuncoli] },
+      { cover: covers.venom257.ejSu, people: [people.ejSu] },
     ],
   });
   add(issues.venom258, {

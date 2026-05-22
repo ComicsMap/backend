@@ -1,52 +1,41 @@
-export interface GraphEdge {
-  uuid: string;
-  source: string;
-  target: string;
-}
+import { GetWindowQuery } from '@comics-map/shared/types';
 
-export type LodLevel = 'cluster' | 'detail';
+export type WindowParams = Omit<GetWindowQuery, 'zoom'>;
 
-export interface DetailNode {
-  kind: 'detail';
+export interface DetailRow {
   uuid: string;
-  position: { x: number; y: number };
+  x: number;
+  y: number;
   communityId: number;
   componentId: number;
+  title: string;
+  publishedAt: string;
+  coverUrl: Nullable<string>;
   seriesUuid: Nullable<string>;
-  seriesDisplayTitle: Nullable<string>;
-  data: {
-    title: string;
-    publishedAt: Date;
-    coverUrl: Nullable<string>;
-  };
+  seriesTitle: Nullable<string>;
+  seriesStartYear: Nullable<number>;
 }
 
-export interface GraphBounds {
+export interface ClusterRow {
+  communityId: number;
+  componentId: number;
+  centroidX: number;
+  centroidY: number;
   xMin: number;
   xMax: number;
   yMin: number;
   yMax: number;
-}
-
-export interface GetMetaResponse {
-  bounds: GraphBounds;
-}
-
-export interface ClusterNode {
-  kind: 'cluster';
-  communityId: number;
-  componentId: number;
-  position: { x: number; y: number };
-  bbox: { xMin: number; xMax: number; yMin: number; yMax: number };
   nodeCount: number;
 }
 
-export interface GetWindowResponse {
-  lodLevel: LodLevel;
-  nodes: Array<DetailNode | ClusterNode>;
-  edges: GraphEdge[];
-  meta: {
-    truncated: boolean;
-    totalInWindow: number;
-  };
+export interface EdgeRow {
+  fromUuid: string;
+  toUuid: string;
+}
+
+export interface BoundsRow {
+  xMin: Nullable<number>;
+  xMax: Nullable<number>;
+  yMin: Nullable<number>;
+  yMax: Nullable<number>;
 }
