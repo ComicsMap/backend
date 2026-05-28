@@ -1,4 +1,5 @@
-import { User, Wishlist } from '@comics-map/shared/entities';
+import { Wishlist } from '@entities/users/collections/wishlist.entity';
+import { User } from '@entities/users/user.entity';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
 import { Injectable } from '@nestjs/common';

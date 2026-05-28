@@ -1,4 +1,4 @@
-import { User } from '@comics-map/shared/entities';
+import { User } from '@entities/users/user.entity';
 
 declare module 'express' {
   interface Request {

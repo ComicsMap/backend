@@ -1,13 +1,10 @@
-import {
-  ContributorRole,
-  Cover,
-  Issue,
-  IssueContributor,
-  Person,
-  Publisher,
-  ReadingEdge,
-  Series,
-} from '@comics-map/shared/entities';
+import { ContributorRole, Publisher } from '@comics-map/shared/types';
+import { Cover } from '@entities/issues/cover.entity';
+import { IssueContributor } from '@entities/issues/issue-contributor.entity';
+import { Issue } from '@entities/issues/issue.entity';
+import { Person } from '@entities/person.entity';
+import { ReadingEdge } from '@entities/reading-edge.entity';
+import { Series } from '@entities/series.entity';
 import { EntityManager, RequiredEntityData } from '@mikro-orm/postgresql';
 
 export type Em = EntityManager;

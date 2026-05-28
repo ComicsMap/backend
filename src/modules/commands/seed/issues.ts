@@ -22,22 +22,64 @@ export const seedIssues = (em: Em, series: Series) => {
       issueNumber: '1',
     }),
 
-    shield1: i({
-      title: 'S.H.I.E.L.D. #1',
-      synopsis:
-        "The most acclaimed book of 2010 is back in 2011! The second volume of S.H.I.E.L.D. has arrived and Jonathan Hickman (FANTASTIC FOUR) and Dustin Weaver (X-MEN) are making the second volume of S.H.I.E.L.D. even better than the first! In this issue, the secret history of Michelangelo. He has been pulling the strings for years and is now becoming the prime mover. Can he keep Da Vinci and Newton from killing each other and destroying the Brotherhood of the Shield? Don't miss this new start of the book that everyone is talking about!",
-      publishedAt: new Date('2011-06-01'),
-      series: series.shield2011,
-      issueNumber: '1',
-    }),
-    shield2: i({
-      title: 'S.H.I.E.L.D. #2',
-      synopsis:
-        'The battle between Leonardo Da Vinci and Issac Newton for the Immortal City comes to a climactic conclusion! Leonid makes his choice between his two fathers, Michelangelo and Tesla kick their plan into high gear and Howard Stark lays the foundation for the organization you know as S.H.I.E.L.D.',
-      publishedAt: new Date('2011-08-03'),
-      series: series.shield2011,
-      issueNumber: '2',
-    }),
+    shield2011: {
+      shield: i({
+        title: 'S.H.I.E.L.D.',
+        synopsis:
+          'In 1497, Leonardo Da Vinci and Isaac Newton were agents of S.H.I.E.L.D., but Leonardo’s agents couldn’t convince Michelangelo to join. Long ago, Archimedes used the Colossus of Rhodes to battle a Kree Sentry.',
+        publishedAt: new Date('2011-04-13'),
+        series: series.shield2011,
+        issueNumber: '0',
+      }),
+      shield1: i({
+        title: 'S.H.I.E.L.D. #1',
+        synopsis:
+          "The most acclaimed book of 2010 is back in 2011! The second volume of S.H.I.E.L.D. has arrived and Jonathan Hickman (FANTASTIC FOUR) and Dustin Weaver (X-MEN) are making the second volume of S.H.I.E.L.D. even better than the first! In this issue, the secret history of Michelangelo. He has been pulling the strings for years and is now becoming the prime mover. Can he keep Da Vinci and Newton from killing each other and destroying the Brotherhood of the Shield? Don't miss this new start of the book that everyone is talking about!",
+        publishedAt: new Date('2011-06-01'),
+        series: series.shield2011,
+        issueNumber: '1',
+      }),
+      shield2: i({
+        title: 'S.H.I.E.L.D. #2',
+        synopsis:
+          'The battle between Leonardo Da Vinci and Issac Newton for the Immortal City comes to a climactic conclusion! Leonid makes his choice between his two fathers, Michelangelo and Tesla kick their plan into high gear and Howard Stark lays the foundation for the organization you know as S.H.I.E.L.D.',
+        publishedAt: new Date('2011-08-03'),
+        series: series.shield2011,
+        issueNumber: '2',
+      }),
+      shield3: i({
+        title: 'S.H.I.E.L.D. #3',
+        synopsis:
+          'Find out why Leonardo da Vinci traveled over 400 years into the future! Also, Galileo takes on Galactus long before the Fantastic Four ever did!',
+        publishedAt: new Date('2011-10-12'),
+        series: series.shield2011,
+        issueNumber: '3',
+      }),
+      shield4: i({
+        title: 'S.H.I.E.L.D. #4',
+        synopsis:
+          'See the world come to an end. Discover the true history of Nostradamus as a Celestial is slain by the hands of a mortal man.',
+        publishedAt: new Date('2011-12-14'),
+        series: series.shield2011,
+        issueNumber: '4',
+      }),
+      shield5: i({
+        title: 'S.H.I.E.L.D. #5',
+        synopsis:
+          "Jonathan Hickman and Dustin Weaver's unfinished epic of 2010-2011 finally gets its conclusion! The Brotherhood of the Shield is made of the likes of Da Vinci, Stark, Tesla and Richards, but they're in trouble. Sir Issac Newton stands with his foot on the world's throat and no one can stop him!",
+        publishedAt: new Date('2018-05-23'),
+        series: series.shield2011,
+        issueNumber: '5',
+      }),
+      shield6: i({
+        title: 'S.H.I.E.L.D. #6',
+        synopsis:
+          'Hickman and Weaver conclude their hotly anticipated story! The battle that decides our present is waged in the future! Will Newton decide the fate of the world?',
+        publishedAt: new Date('2018-06-13'),
+        series: series.shield2011,
+        issueNumber: '6',
+      }),
+    },
 
     kingInBlack1: i({
       title: 'King in Black #1',
@@ -270,63 +312,67 @@ export const seedIssues = (em: Em, series: Series) => {
       issueNumber: '1',
     }),
 
-    ultimateEndgame1: i({
-      title: 'Ultimate Endgame #1',
-      synopsis:
-        "ENDGAME HAS ARRIVED! The moment that has been building since the beginning of the new Ultimate Universe! Spinning out of Deniz Camp and Juan Frigeri's ULTIMATES comes the culmination of ULTIMATE INVASION… Two (thousand) years have passed in the Ultimate Universe, but inside the City, the Maker has had thousands of years to prepare for his return! With the barrier around the City finally gone, heroes all across the Ultimate Universe must mobilize to defeat the Maker before it's game over. For everyone. Meanwhile, the rest of the world wages World War III…",
-      publishedAt: new Date('2025-12-31'),
-      series: series.ultimateEndgame,
-      issueNumber: '1',
-    }),
-    ultimateEndgame2: i({
-      title: 'Ultimate Endgame #2',
-      synopsis:
-        "THE END HAS ONLY JUST BEGUN! The heroes of the Ultimate Universe - including Spider-Man, America Chavez, Killmonger and Doom - desperately search for a way to stop the Maker. Plus, Iron Lad makes a stunning and heartbreaking discovery that could change the fate of the entire Ultimate Universe forever. Don't miss this pivotal chapter that will leave you reeling!",
-      publishedAt: new Date('2026-02-04'),
-      series: series.ultimateEndgame,
-      issueNumber: '2',
-    }),
-    ultimateEndgame3: i({
-      title: 'Ultimate Endgame #3',
-      synopsis:
-        "THE END OF THE ULTIMATE UNIVERSE DRAWS NEAR! Inside the Maker's City, a desperate group of heroes battles the terrifying Children of Tomorrow and discover some surprising allies! While outside the City, the Ultimates and other heroes of the Ultimate Universe must deal with the unspeakable power that has just been unleashed! With shocking twists, painful deaths and massive reveals, this epic is heating up fast. Don't miss the ultimate super-hero event of the century!",
-      publishedAt: new Date('2026-03-25'),
-      series: series.ultimateEndgame,
-      issueNumber: '3',
-    }),
-    ultimateEndgame4: i({
-      title: 'Ultimate Endgame #4',
-      synopsis:
-        'SPIDER-MAN MEETS HIS MAKER! Time is ticking on the Ultimate Universe!!! In this penultimate issue of the most climactic super-hero event EVER(!)…heroes will fall, villains will rise and your favorite characters will be forced to make difficult sacrifices!',
-      publishedAt: new Date('2026-05-13'),
-      series: series.ultimateEndgame,
-      issueNumber: '4',
-    }),
+    ultimateEndgame: {
+      ultimateEndgame1: i({
+        title: 'Ultimate Endgame #1',
+        synopsis:
+          "ENDGAME HAS ARRIVED! The moment that has been building since the beginning of the new Ultimate Universe! Spinning out of Deniz Camp and Juan Frigeri's ULTIMATES comes the culmination of ULTIMATE INVASION… Two (thousand) years have passed in the Ultimate Universe, but inside the City, the Maker has had thousands of years to prepare for his return! With the barrier around the City finally gone, heroes all across the Ultimate Universe must mobilize to defeat the Maker before it's game over. For everyone. Meanwhile, the rest of the world wages World War III…",
+        publishedAt: new Date('2025-12-31'),
+        series: series.ultimateEndgame,
+        issueNumber: '1',
+      }),
+      ultimateEndgame2: i({
+        title: 'Ultimate Endgame #2',
+        synopsis:
+          "THE END HAS ONLY JUST BEGUN! The heroes of the Ultimate Universe - including Spider-Man, America Chavez, Killmonger and Doom - desperately search for a way to stop the Maker. Plus, Iron Lad makes a stunning and heartbreaking discovery that could change the fate of the entire Ultimate Universe forever. Don't miss this pivotal chapter that will leave you reeling!",
+        publishedAt: new Date('2026-02-04'),
+        series: series.ultimateEndgame,
+        issueNumber: '2',
+      }),
+      ultimateEndgame3: i({
+        title: 'Ultimate Endgame #3',
+        synopsis:
+          "THE END OF THE ULTIMATE UNIVERSE DRAWS NEAR! Inside the Maker's City, a desperate group of heroes battles the terrifying Children of Tomorrow and discover some surprising allies! While outside the City, the Ultimates and other heroes of the Ultimate Universe must deal with the unspeakable power that has just been unleashed! With shocking twists, painful deaths and massive reveals, this epic is heating up fast. Don't miss the ultimate super-hero event of the century!",
+        publishedAt: new Date('2026-03-25'),
+        series: series.ultimateEndgame,
+        issueNumber: '3',
+      }),
+      ultimateEndgame4: i({
+        title: 'Ultimate Endgame #4',
+        synopsis:
+          'SPIDER-MAN MEETS HIS MAKER! Time is ticking on the Ultimate Universe!!! In this penultimate issue of the most climactic super-hero event EVER(!)…heroes will fall, villains will rise and your favorite characters will be forced to make difficult sacrifices!',
+        publishedAt: new Date('2026-05-13'),
+        series: series.ultimateEndgame,
+        issueNumber: '4',
+      }),
+    },
 
-    ultimateSpiderMan55: i({
-      title: 'Ultimate Spider-Man #55',
-      synopsis:
-        'HOLLYWOOD PART 2 Spider-Man may have made it to Hollywood, but Doc Ock is right behind him! Prepare for an all-out showdown on the set of the unauthorized Spider-Man movie!',
-      publishedAt: new Date('2004-03-24'),
-      series: series.ultimateSpiderMan,
-      issueNumber: '55',
-    }),
-    ultimateSpiderMan67: i({
-      title: 'Ultimate Spider-Man #67',
-      synopsis:
-        "SUPERSTARS PART 2 Wolverine and Spider-Man have always been in each other's faces. Today they're in each other's bodies! It's Freaky Friday...",
-      publishedAt: new Date('2004-09-20'),
-      series: series.ultimateSpiderMan,
-      issueNumber: '67',
-    }),
-    ultimateSpiderMan115: i({
-      title: 'Ultimate Spider-Man #115',
-      synopsis:
-        "DEATH OF A GOBLIN PART 4 A team of federal agents are on Osborn's tail! And leading that team is none other than Spider-Man: Agent of S.H.I.E.L.D.! How did this happen and what does it all mean?",
-      publishedAt: new Date('2007-09-24'),
-      series: series.ultimateSpiderMan,
-      issueNumber: '115',
-    }),
+    ultimateSpiderMan: {
+      ultimateSpiderMan55: i({
+        title: 'Ultimate Spider-Man #55',
+        synopsis:
+          'HOLLYWOOD PART 2 Spider-Man may have made it to Hollywood, but Doc Ock is right behind him! Prepare for an all-out showdown on the set of the unauthorized Spider-Man movie!',
+        publishedAt: new Date('2004-03-24'),
+        series: series.ultimateSpiderMan,
+        issueNumber: '55',
+      }),
+      ultimateSpiderMan67: i({
+        title: 'Ultimate Spider-Man #67',
+        synopsis:
+          "SUPERSTARS PART 2 Wolverine and Spider-Man have always been in each other's faces. Today they're in each other's bodies! It's Freaky Friday...",
+        publishedAt: new Date('2004-09-20'),
+        series: series.ultimateSpiderMan,
+        issueNumber: '67',
+      }),
+      ultimateSpiderMan115: i({
+        title: 'Ultimate Spider-Man #115',
+        synopsis:
+          "DEATH OF A GOBLIN PART 4 A team of federal agents are on Osborn's tail! And leading that team is none other than Spider-Man: Agent of S.H.I.E.L.D.! How did this happen and what does it all mean?",
+        publishedAt: new Date('2007-09-24'),
+        series: series.ultimateSpiderMan,
+        issueNumber: '115',
+      }),
+    },
 
     secretAvengers1: i({
       title: 'Secret Avengers #1',

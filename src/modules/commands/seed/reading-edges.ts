@@ -2,7 +2,7 @@ import { Em, readingChain } from '@commands/seed/helpers';
 import { Issues } from '@commands/seed/issues';
 
 export const seedReadingEdges = (em: Em, issues: Issues) => {
-  readingChain(em, issues.shield1, issues.shield2);
+  readingChain(em, issues.shield2011.shield1, issues.shield2011.shield2);
 
   readingChain(
     em,
@@ -39,10 +39,10 @@ export const seedReadingEdges = (em: Em, issues: Issues) => {
   readingChain(
     em,
     issues.ultimateUniverseTwoYearsIn,
-    issues.ultimateEndgame1,
-    issues.ultimateEndgame2,
-    issues.ultimateEndgame3,
-    issues.ultimateEndgame4,
+    issues.ultimateEndgame.ultimateEndgame1,
+    issues.ultimateEndgame.ultimateEndgame2,
+    issues.ultimateEndgame.ultimateEndgame3,
+    issues.ultimateEndgame.ultimateEndgame4,
   );
 
   readingChain(

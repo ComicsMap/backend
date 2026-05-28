@@ -1,4 +1,4 @@
-import { ContributorRole, Publisher } from '@comics-map/shared/entities';
+import { ContributorRole, Publisher } from '@comics-map/shared/types';
 import { z } from 'zod';
 
 const populatedPersonSchema = z.object({

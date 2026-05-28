@@ -1,5 +1,5 @@
-import { UserRole } from '@comics-map/shared/entities';
 import { createUserDataSchema } from '@comics-map/shared/schemas';
+import { UserRole } from '@comics-map/shared/types';
 import { input, password } from '@inquirer/prompts';
 import { CreateRequestContext, MikroORM } from '@mikro-orm/core';
 import { UsersService } from '@modules/users/users.service';

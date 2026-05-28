@@ -15,15 +15,58 @@ export const seedCovers = (em: Em) => {
       barcodes: ['75960621236100111'],
     }),
 
-    shield1: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/60/5c59c10b90fa9/clean.jpg',
-      isVariant: false,
-      barcodes: ['75960607530000111'],
-    }),
-    shield2: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/60/5c59c988e6107/clean.jpg',
-      isVariant: false,
-    }),
+    shield2011: {
+      shield: {
+        default: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/b0/5c59b5f0e5f43/clean.jpg',
+          isVariant: false,
+        }),
+        variant1: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/a0/4d9f466f13ca4/clean.jpg',
+          isVariant: true,
+        }),
+      },
+      shield1: {
+        default: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/60/5c59c10b90fa9/clean.jpg',
+          isVariant: false,
+          barcodes: ['75960607530000111'],
+        }),
+        variant1: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/00/4de4ebc41bb83/clean.jpg',
+          isVariant: true,
+        }),
+      },
+      shield2: {
+        default: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/60/5c59c988e6107/clean.jpg',
+          isVariant: false,
+        }),
+        variant1: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/10/4e32d79c48438/clean.jpg',
+          isVariant: true,
+        }),
+      },
+      shield3: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/30/5c59e0aa4ffb3/clean.jpg',
+        isVariant: false,
+      }),
+      shield4: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/b0/5c59ea987c6f7/clean.jpg',
+        isVariant: false,
+        barcodes: ['759606075301000411'],
+      }),
+      shield5: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/b/e0/5afc7fd45021a/clean.jpg',
+        isVariant: false,
+        barcodes: ['759606075301000511'],
+      }),
+      shield6: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/60/5b17054357752/clean.jpg',
+        isVariant: false,
+        barcodes: ['759606075301000611'],
+      }),
+    },
 
     kingInBlack1: {
       default: c({
@@ -214,54 +257,125 @@ export const seedCovers = (em: Em) => {
         isVariant: false,
         barcodes: ['75960621248400111'],
       }),
-      daredevil: c({
+      variant1: c({
         url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/8/70/691f33a00a1cd/clean.jpg',
         isVariant: true,
         barcodes: ['75960621248400121'],
       }),
+      variant2: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/00/691f33a01a754/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621248400117'],
+      }),
+      variant3: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/50/691f339fb1598/clean.jpg',
+        isVariant: true,
+        barcodes: ['75960621248400116'],
+      }),
     },
 
-    ultimateEndgame1: {
-      default: c({
-        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/e0/693ae1395de55/clean.jpg',
+    ultimateEndgame: {
+      ultimateEndgame1: {
+        default: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/e0/693ae1395de55/clean.jpg',
+          isVariant: false,
+          barcodes: ['75960621336800111'],
+        }),
+        variant1: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/5/d0/693ae20c4037a/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800121'],
+        }),
+        variant2: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/00/693ae20d982f8/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800131'],
+        }),
+        variant3: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/50/693ae208da580/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800116'],
+        }),
+        variant4: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/e0/693ae210cbeec/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800171'],
+        }),
+        variant5: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/10/693ae21047cc4/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800161'],
+        }),
+        variant6: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/c0/693ae20e5486e/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800141'],
+        }),
+        variant7: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/50/693ae20a93cdf/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800118'],
+        }),
+        variant8: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/8/b0/693ae20a224eb/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800117'],
+        }),
+        variant9: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/9/10/693ae20b7a42f/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800119'],
+        }),
+        variant10: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/1/10/693ae27818752/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800181'],
+        }),
+        variant11: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/10/693ae20f42244/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800151'],
+        }),
+        variant12: c({
+          url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/f0/693ae2781916d/clean.jpg',
+          isVariant: true,
+          barcodes: ['75960621336800191'],
+        }),
+      },
+      ultimateEndgame2: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/10/69724eac69354/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960621336800211'],
+      }),
+      ultimateEndgame3: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/a0/69aedff0d922c/clean.jpg',
+        isVariant: false,
+
+        barcodes: ['75960621336800311'],
+      }),
+      ultimateEndgame4: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/2/c0/019dc145bf44/clean.jpg',
         isVariant: false,
       }),
-      cafu: c({
-        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/c0/693ae20e5486e/clean.jpg',
-        isVariant: true,
-        barcodes: ['75960621336800141'],
+    },
+
+    ultimateSpiderMan: {
+      ultimateSpiderMan55: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/50/58e3e6a0ce6d1/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960605031405511'],
+      }),
+      ultimateSpiderMan67: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/60/58e69cb4468cf/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960605031406711'],
+      }),
+      ultimateSpiderMan115: c({
+        url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/40/58e7c56bd2848/clean.jpg',
+        isVariant: false,
+        barcodes: ['75960605031411511'],
       }),
     },
-    ultimateEndgame2: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/10/69724eac69354/clean.jpg',
-      isVariant: false,
-      barcodes: ['75960621336800211'],
-    }),
-    ultimateEndgame3: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/a0/69aedff0d922c/clean.jpg',
-      isVariant: false,
-
-      barcodes: ['75960621336800311'],
-    }),
-    ultimateEndgame4: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/2/c0/019dc145bf44/clean.jpg',
-      isVariant: false,
-    }),
-
-    ultimateSpiderMan55: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/c/50/58e3e6a0ce6d1/clean.jpg',
-      isVariant: false,
-    }),
-    ultimateSpiderMan67: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/a/60/58e69cb4468cf/clean.jpg',
-      isVariant: false,
-      barcodes: ['75960605031406711'],
-    }),
-    ultimateSpiderMan115: c({
-      url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/7/40/58e7c56bd2848/clean.jpg',
-      isVariant: false,
-      barcodes: ['75960605031411511'],
-    }),
 
     webOfVenomTheGoodSon1: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/d0/5e1c8c7f75703/clean.jpg',
@@ -272,6 +386,7 @@ export const seedCovers = (em: Em) => {
     captainAmericaSentinelOfLiberty2: c({
       url: 'https://cdn.marvel.com/u/prod/marvel/i/mg/e/03/57c08243690e9/clean.jpg',
       isVariant: false,
+      barcodes: ['75960603502100211'],
     }),
 
     secretAvengers1: c({

@@ -1,8 +1,10 @@
-import { Cover, Issue, Person } from '@comics-map/shared/entities';
 import { Covers } from '@commands/seed/covers';
 import { addContributors, Em } from '@commands/seed/helpers';
 import { Issues } from '@commands/seed/issues';
 import { People } from '@commands/seed/people';
+import { Cover } from '@entities/issues/cover.entity';
+import { Issue } from '@entities/issues/issue.entity';
+import { Person } from '@entities/person.entity';
 
 export const seedContributors = (
   em: Em,
@@ -35,15 +37,89 @@ export const seedContributors = (
     ],
   });
 
-  add(issues.shield1, {
+  add(issues.shield2011.shield, {
     writers: [people.jonathanHickman],
-    artists: [people.dustinWeaver],
-    coverArtists: [{ cover: covers.shield1, people: [people.geraldParel] }],
+    artists: [
+      people.zacharyBaldus,
+      people.nicholasPitarra,
+      people.gabrielHernandezWalta,
+      people.dustinWeaver,
+    ],
+    coverArtists: [
+      { cover: covers.shield2011.shield.default, people: [people.geraldParel] },
+      {
+        cover: covers.shield2011.shield.variant1,
+        people: [people.dustinWeaver],
+      },
+    ],
   });
-  add(issues.shield2, {
+  add(issues.shield2011.shield1, {
     writers: [people.jonathanHickman],
     artists: [people.dustinWeaver],
-    coverArtists: [{ cover: covers.shield2, people: [people.geraldParel] }],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield1.default,
+        people: [people.geraldParel],
+      },
+      {
+        cover: covers.shield2011.shield1.variant1,
+        people: [people.dustinWeaver],
+      },
+    ],
+  });
+  add(issues.shield2011.shield2, {
+    writers: [people.jonathanHickman],
+    artists: [people.dustinWeaver],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield2.default,
+        people: [people.geraldParel],
+      },
+      {
+        cover: covers.shield2011.shield2.variant1,
+        people: [people.dustinWeaver],
+      },
+    ],
+  });
+  add(issues.shield2011.shield3, {
+    writers: [people.jonathanHickman],
+    artists: [people.dustinWeaver],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield3,
+        people: [people.geraldParel, people.dustinWeaver],
+      },
+    ],
+  });
+  add(issues.shield2011.shield4, {
+    writers: [people.jonathanHickman],
+    artists: [people.dustinWeaver],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield4,
+        people: [people.geraldParel],
+      },
+    ],
+  });
+  add(issues.shield2011.shield5, {
+    writers: [people.jonathanHickman],
+    artists: [people.dustinWeaver],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield5,
+        people: [people.geraldParel],
+      },
+    ],
+  });
+  add(issues.shield2011.shield6, {
+    writers: [people.jonathanHickman],
+    artists: [people.dustinWeaver],
+    coverArtists: [
+      {
+        cover: covers.shield2011.shield6,
+        people: [people.geraldParel],
+      },
+    ],
   });
 
   add(issues.amazingSpiderManFCBD2025, {
@@ -298,76 +374,146 @@ export const seedContributors = (
     coverArtists: [
       {
         cover: covers.ultimateUniverseTwoYearsIn.default,
+        people: [people.ryanStegman, people.frankMartin],
+      },
+      {
+        cover: covers.ultimateUniverseTwoYearsIn.variant1,
+        people: [people.giuseppeCamuncoli],
+      },
+      {
+        cover: covers.ultimateUniverseTwoYearsIn.variant2,
+        people: [people.giuseppeCamuncoli],
+      },
+      {
+        cover: covers.ultimateUniverseTwoYearsIn.variant3,
+        people: [people.arioAnindito],
+      },
+    ],
+  });
+
+  add(issues.ultimateEndgame.ultimateEndgame1, {
+    writers: [people.denizCamp],
+    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
+    coverArtists: [
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.default,
+        people: [people.markBrooks],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant1,
+        people: [people.derrickChew],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant2,
+        people: [people.skottieYoung],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant3,
+        people: [people.skottieYoung],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant4,
+        people: [people.peachMamoko],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant5,
+        people: [people.danPanosian],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant6,
+        people: [people.cafu],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant7,
+        people: [people.alexanderLozano],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant8,
         people: [people.ryanStegman],
       },
       {
-        cover: covers.ultimateUniverseTwoYearsIn.daredevil,
-        people: [people.giuseppeCamuncoli],
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant9,
+        people: [people.chipZdarsky],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant10,
+        people: [people.unknown],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant11,
+        people: [people.sanfordGreene],
+      },
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame1.variant12,
+        people: [people.unknown],
+      },
+    ],
+  });
+  add(issues.ultimateEndgame.ultimateEndgame2, {
+    writers: [people.denizCamp],
+    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
+    coverArtists: [
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame2,
+        people: [people.markBrooks],
+      },
+    ],
+  });
+  add(issues.ultimateEndgame.ultimateEndgame3, {
+    writers: [people.denizCamp],
+    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
+    coverArtists: [
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame3,
+        people: [people.markBrooks],
+      },
+    ],
+  });
+  add(issues.ultimateEndgame.ultimateEndgame4, {
+    writers: [people.denizCamp],
+    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
+    coverArtists: [
+      {
+        cover: covers.ultimateEndgame.ultimateEndgame4,
+        people: [people.markBrooks],
       },
     ],
   });
 
-  add(issues.ultimateEndgame1, {
-    writers: [people.denizCamp],
-    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
-    coverArtists: [
-      { cover: covers.ultimateEndgame1.default, people: [people.markBrooks] },
-      { cover: covers.ultimateEndgame1.cafu, people: [people.cafu] },
-    ],
-  });
-  add(issues.ultimateEndgame2, {
-    writers: [people.denizCamp],
-    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
-    coverArtists: [
-      { cover: covers.ultimateEndgame2, people: [people.markBrooks] },
-    ],
-  });
-  add(issues.ultimateEndgame3, {
-    writers: [people.denizCamp],
-    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
-    coverArtists: [
-      { cover: covers.ultimateEndgame3, people: [people.markBrooks] },
-    ],
-  });
-  add(issues.ultimateEndgame4, {
-    writers: [people.denizCamp],
-    artists: [people.terryDodson, people.rachelDodson, people.jonasScharf],
-    coverArtists: [
-      { cover: covers.ultimateEndgame4, people: [people.markBrooks] },
-    ],
-  });
-
-  add(issues.ultimateSpiderMan55, {
+  add(issues.ultimateSpiderMan.ultimateSpiderMan55, {
     writers: [people.brianMichaelBendis],
     artists: [people.markBagley],
     coverArtists: [
       {
-        cover: covers.ultimateSpiderMan55,
+        cover: covers.ultimateSpiderMan.ultimateSpiderMan55,
         people: [people.markBagley, people.richardIsanove],
       },
     ],
   });
-  add(issues.ultimateSpiderMan67, {
+  add(issues.ultimateSpiderMan.ultimateSpiderMan67, {
     writers: [people.brianMichaelBendis],
     artists: [people.markBagley],
     coverArtists: [
       {
-        cover: covers.ultimateSpiderMan67,
+        cover: covers.ultimateSpiderMan.ultimateSpiderMan67,
         people: [people.markBagley, people.richardIsanove],
       },
     ],
   });
-  add(issues.ultimateSpiderMan115, {
+  add(issues.ultimateSpiderMan.ultimateSpiderMan115, {
     writers: [people.brianMichaelBendis],
     artists: [people.stuartImmonen],
     coverArtists: [
-      { cover: covers.ultimateSpiderMan115, people: [people.stuartImmonen] },
+      {
+        cover: covers.ultimateSpiderMan.ultimateSpiderMan115,
+        people: [people.stuartImmonen],
+      },
     ],
   });
 
   add(issues.webOfVenomTheGoodSon1, {
     writers: [people.zacThompson],
-    artists: [people.dioNeves],
+    artists: [people.dioNeves, people.juanGedeon],
     coverArtists: [
       {
         cover: covers.webOfVenomTheGoodSon1,
@@ -377,8 +523,8 @@ export const seedContributors = (
   });
 
   add(issues.captainAmericaSentinelOfLiberty2, {
-    writers: [people.ronGarney],
-    artists: [people.ronGarney, people.markWaid],
+    writers: [people.ronGarney, people.markWaid],
+    artists: [people.ronGarney],
     coverArtists: [
       {
         cover: covers.captainAmericaSentinelOfLiberty2,

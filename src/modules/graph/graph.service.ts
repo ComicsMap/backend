@@ -1,4 +1,3 @@
-import { Series } from '@comics-map/shared/entities';
 import {
   ClusterNode,
   DetailNode,
@@ -7,6 +6,7 @@ import {
   GraphEdge,
   LodLevel,
 } from '@comics-map/shared/types';
+import { Series } from '@entities/series.entity';
 import { EntityManager } from '@mikro-orm/postgresql';
 import { CLUSTER_LOD_AREA_RATIO } from '@modules/graph/graph.constants';
 import * as Types from '@modules/graph/graph.types';

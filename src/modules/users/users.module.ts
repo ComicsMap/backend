@@ -1,4 +1,4 @@
-import { User } from '@comics-map/shared/entities';
+import { User } from '@entities/users/user.entity';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { CollectionsModule } from '@modules/collections/collections.module';
 import { UsersController } from '@modules/users/users.controller';

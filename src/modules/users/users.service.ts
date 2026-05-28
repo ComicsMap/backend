@@ -1,4 +1,4 @@
-import { User } from '@comics-map/shared/entities';
+import { User } from '@entities/users/user.entity';
 import { EntityRepository, RequiredEntityData } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { CollectionsService } from '@modules/collections/collections.service';

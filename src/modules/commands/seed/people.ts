@@ -97,6 +97,19 @@ export const seedPeople = (em: Em) => {
     donnyCates: p({ firstName: 'Donny', lastName: 'Cates' }),
     ianBederman: p({ firstName: 'Ian', lastName: 'Bederman' }),
     ejSu: p({ firstName: 'E.J.', lastName: 'Su' }),
+    zacharyBaldus: p({ firstName: 'Zachary', lastName: 'Baldus' }),
+    nicholasPitarra: p({ firstName: 'Nicholas', lastName: 'Pitarra' }),
+    gabrielHernandezWalta: p({
+      firstName: 'Gabriel Hernandez',
+      lastName: 'Walta',
+    }),
+    juanGedeon: p({ firstName: 'Juan', lastName: 'Gedeon' }),
+    arioAnindito: p({ firstName: 'Ario', lastName: 'Anindito' }),
+    derrickChew: p({ firstName: 'Derrick', lastName: 'Chew' }),
+    skottieYoung: p({ firstName: 'Skottie', lastName: 'Young' }),
+    danPanosian: p({ firstName: 'Dan', lastName: 'Panosian' }),
+    alexanderLozano: p({ firstName: 'Alexander', lastName: 'Lozano' }),
+    sanfordGreene: p({ firstName: 'Sanford', lastName: 'Greene' }),
   };
 };
 
